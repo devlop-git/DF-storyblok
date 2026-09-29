@@ -1,0 +1,35 @@
+{
+  "name": "footer_column",
+  "display_name": "footer_column",
+  "is_root": true,
+  "is_nestable": false,
+  "group": "Collection Types",
+  "schema": {
+    "key": {
+      "pos": 0,
+      "type": "text",
+      "required": true,
+      "translatable": true
+    },
+    "heading": {
+      "pos": 1,
+      "type": "text",
+      "required": true,
+      "translatable": true
+    },
+    "order": {
+      "pos": 2,
+      "type": "number",
+      "required": true,
+      "translatable": true,
+      "default_value": "0"
+    },
+    "active": {
+      "pos": 3,
+      "type": "boolean",
+      "required": true,
+      "translatable": true,
+      "default_value": "true"
+    }
+  }
+}

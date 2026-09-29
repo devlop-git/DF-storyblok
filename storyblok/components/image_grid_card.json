@@ -1,0 +1,34 @@
+{
+  "name": "image_grid_card",
+  "display_name": "Image Grid Card",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Grids",
+  "schema": {
+    "image": {
+      "pos": 0,
+      "type": "asset",
+      "filetypes": [
+        "images"
+      ],
+      "required": true
+    },
+    "title": {
+      "pos": 1,
+      "type": "text"
+    },
+    "description": {
+      "pos": 2,
+      "type": "textarea"
+    },
+    "CTALabel": {
+      "pos": 3,
+      "type": "text",
+      "default_value": "Learn More"
+    },
+    "CTAUrl": {
+      "pos": 4,
+      "type": "text"
+    }
+  }
+}

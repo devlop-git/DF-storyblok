@@ -1,0 +1,34 @@
+{
+  "name": "feature_highlights",
+  "display_name": "Feature Highlights",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Grids",
+  "schema": {
+    "items": {
+      "pos": 0,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "feature_item"
+      ]
+    },
+    "title": {
+      "pos": 1,
+      "type": "text"
+    },
+    "description": {
+      "pos": 2,
+      "type": "textarea"
+    },
+    "gap": {
+      "pos": 3,
+      "type": "number",
+      "default_value": "3"
+    },
+    "bgColor": {
+      "pos": 4,
+      "type": "text"
+    }
+  }
+}

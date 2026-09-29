@@ -1,0 +1,17 @@
+{
+  "name": "chip_link",
+  "display_name": "Chip Link",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Content Blocks",
+  "schema": {
+    "label": {
+      "pos": 0,
+      "type": "text"
+    },
+    "url": {
+      "pos": 1,
+      "type": "text"
+    }
+  }
+}

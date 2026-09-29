@@ -1,0 +1,25 @@
+{
+  "name": "header",
+  "display_name": "Header",
+  "is_root": true,
+  "is_nestable": false,
+  "group": "Single Types",
+  "schema": {
+    "Announcement": {
+      "pos": 0,
+      "type": "text",
+      "translatable": true
+    },
+    "Logo": {
+      "pos": 1,
+      "type": "multiasset",
+      "required": true,
+      "translatable": true
+    },
+    "ContactNumber": {
+      "pos": 2,
+      "type": "number",
+      "translatable": true
+    }
+  }
+}

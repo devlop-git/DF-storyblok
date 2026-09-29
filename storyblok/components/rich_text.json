@@ -1,0 +1,21 @@
+{
+  "name": "rich_text",
+  "display_name": "Rich Text",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Content Blocks",
+  "schema": {
+    "content": {
+      "pos": 0,
+      "type": "richtext"
+    },
+    "heading": {
+      "pos": 1,
+      "type": "text"
+    },
+    "bgColor": {
+      "pos": 2,
+      "type": "text"
+    }
+  }
+}

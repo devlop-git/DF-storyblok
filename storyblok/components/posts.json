@@ -1,0 +1,25 @@
+{
+  "name": "posts",
+  "display_name": "Posts",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Carousels",
+  "schema": {
+    "desktopInstaImage": {
+      "pos": 0,
+      "type": "multiasset"
+    },
+    "instaURL": {
+      "pos": 1,
+      "type": "text"
+    },
+    "mobileInstaImage": {
+      "pos": 2,
+      "type": "multiasset"
+    },
+    "tabInstaImage": {
+      "pos": 3,
+      "type": "multiasset"
+    }
+  }
+}

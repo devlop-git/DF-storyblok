@@ -1,0 +1,33 @@
+{
+  "name": "product_listing",
+  "display_name": "Product Listing",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Plp",
+  "schema": {
+    "toolbarConfig": {
+      "pos": 0,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "toolbar_configuration"
+      ]
+    },
+    "filterConfig": {
+      "pos": 1,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "filter_configuration"
+      ]
+    },
+    "gridConfig": {
+      "pos": 2,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "product_grid_cofiguration"
+      ]
+    }
+  }
+}

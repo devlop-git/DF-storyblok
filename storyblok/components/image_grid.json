@@ -1,0 +1,33 @@
+{
+  "name": "image_grid",
+  "display_name": "Image Grid",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Grids",
+  "schema": {
+    "heading": {
+      "pos": 0,
+      "type": "text"
+    },
+    "description": {
+      "pos": 1,
+      "type": "textarea"
+    },
+    "items": {
+      "pos": 2,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "image_grid_card"
+      ]
+    },
+    "imageWidth": {
+      "pos": 3,
+      "type": "number"
+    },
+    "imageHeight": {
+      "pos": 4,
+      "type": "number"
+    }
+  }
+}

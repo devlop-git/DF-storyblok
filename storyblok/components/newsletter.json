@@ -1,0 +1,22 @@
+{
+  "name": "newsletter",
+  "display_name": "NewsletterSection",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Forms",
+  "schema": {
+    "heading": {
+      "pos": 0,
+      "type": "text"
+    },
+    "description": {
+      "pos": 1,
+      "type": "textarea"
+    },
+    "btnLabel": {
+      "pos": 2,
+      "type": "text",
+      "required": true
+    }
+  }
+}

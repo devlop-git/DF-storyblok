@@ -1,0 +1,25 @@
+{
+  "name": "promotion_banner_grid",
+  "display_name": "Promotion Banner Grid",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Grids",
+  "schema": {
+    "heading": {
+      "pos": 0,
+      "type": "text"
+    },
+    "description": {
+      "pos": 1,
+      "type": "textarea"
+    },
+    "items": {
+      "pos": 2,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "promotion_banner"
+      ]
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "image_overlay_grid",
+  "display_name": "Image Overlay Grid",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Grids",
+  "schema": {
+    "heading": {
+      "pos": 0,
+      "type": "text"
+    },
+    "items": {
+      "pos": 1,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "image_overlay_card"
+      ]
+    }
+  }
+}

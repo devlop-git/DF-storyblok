@@ -1,0 +1,66 @@
+{
+  "name": "feature_item",
+  "display_name": "Feature Item",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Grids",
+  "schema": {
+    "desktopIcon": {
+      "pos": 0,
+      "type": "multiasset"
+    },
+    "mobileIcon": {
+      "pos": 1,
+      "type": "asset"
+    },
+    "tabIcon": {
+      "pos": 2,
+      "type": "asset"
+    },
+    "iconPosition": {
+      "pos": 3,
+      "type": "option",
+      "options": [
+        {
+          "name": "left",
+          "value": "left"
+        },
+        {
+          "name": "right",
+          "value": "right"
+        },
+        {
+          "name": "top",
+          "value": "top"
+        },
+        {
+          "name": "bottom",
+          "value": "bottom"
+        }
+      ]
+    },
+    "mediaType": {
+      "pos": 4,
+      "type": "option",
+      "options": [
+        {
+          "name": "icon",
+          "value": "icon"
+        },
+        {
+          "name": "image",
+          "value": "image"
+        }
+      ],
+      "default_value": "icon"
+    },
+    "lines": {
+      "pos": 5,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "feature_line"
+      ]
+    }
+  }
+}

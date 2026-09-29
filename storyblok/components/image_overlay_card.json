@@ -1,0 +1,33 @@
+{
+  "name": "image_overlay_card",
+  "display_name": "Image Overlay Card",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Grids",
+  "schema": {
+    "label": {
+      "pos": 0,
+      "type": "text"
+    },
+    "image": {
+      "pos": 1,
+      "type": "asset",
+      "filetypes": [
+        "images"
+      ]
+    },
+    "description": {
+      "pos": 2,
+      "type": "richtext"
+    },
+    "CTALabel": {
+      "pos": 3,
+      "type": "text",
+      "default_value": "Learn More"
+    },
+    "CTAUrl": {
+      "pos": 4,
+      "type": "text"
+    }
+  }
+}

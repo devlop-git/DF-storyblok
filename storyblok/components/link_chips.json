@@ -1,0 +1,21 @@
+{
+  "name": "link_chips",
+  "display_name": "Link Chips",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Content Blocks",
+  "schema": {
+    "title": {
+      "pos": 0,
+      "type": "text"
+    },
+    "chips": {
+      "pos": 1,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "chip_link"
+      ]
+    }
+  }
+}

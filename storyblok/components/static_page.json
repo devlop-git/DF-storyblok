@@ -1,0 +1,121 @@
+{
+  "name": "static_page",
+  "display_name": "static-page",
+  "is_root": true,
+  "is_nestable": false,
+  "group": "Collection Types",
+  "schema": {
+    "title": {
+      "pos": 0,
+      "type": "text",
+      "required": true,
+      "translatable": true
+    },
+    "slug": {
+      "pos": 1,
+      "type": "text",
+      "required": true,
+      "translatable": true
+    },
+    "seo_title": {
+      "pos": 2,
+      "type": "text",
+      "translatable": true
+    },
+    "seo_description": {
+      "pos": 3,
+      "type": "textarea",
+      "translatable": true
+    },
+    "breadcrumb_labels": {
+      "pos": 4,
+      "type": "text",
+      "translatable": true
+    },
+    "show_breadcrumb": {
+      "pos": 5,
+      "type": "boolean",
+      "translatable": true
+    },
+    "market": {
+      "pos": 6,
+      "type": "option",
+      "source": "internal_stories",
+      "filter_content_type": [
+        "market"
+      ]
+    },
+    "content": {
+      "pos": 7,
+      "type": "richtext",
+      "translatable": true
+    },
+    "component_content": {
+      "pos": 8,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "slides",
+        "reviews",
+        "promotion_banner",
+        "posts",
+        "newsletter",
+        "cancel_order_form",
+        "contact_us_form",
+        "link_chips",
+        "image_overlay_grid",
+        "new_home_page",
+        "instagram_feed",
+        "image_text_section",
+        "hero_banner",
+        "feature_item",
+        "feature_highlights",
+        "image_grid",
+        "image_grid_card",
+        "promotion_banner_grid",
+        "image_card_carousel",
+        "toolbar_configuration",
+        "read_more_content",
+        "product_listing",
+        "product_grid_cofiguration",
+        "icon_link_card",
+        "filter_configuration",
+        "faq",
+        "faq_items",
+        "banner_info",
+        "banner_configuration",
+        "image_banner",
+        "comparison_table",
+        "rich_text"
+      ]
+    },
+    "parent_page": {
+      "pos": 9,
+      "type": "option",
+      "source": "internal_stories",
+      "filter_content_type": [
+        "static_page"
+      ]
+    },
+    "show_in_footer": {
+      "pos": 10,
+      "type": "boolean",
+      "required": true,
+      "translatable": true,
+      "default_value": "true"
+    },
+    "footer_order": {
+      "pos": 11,
+      "type": "number",
+      "translatable": true
+    },
+    "footer_column": {
+      "pos": 12,
+      "type": "option",
+      "source": "internal_stories",
+      "filter_content_type": [
+        "footer_column"
+      ]
+    }
+  }
+}

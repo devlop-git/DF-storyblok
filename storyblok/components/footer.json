@@ -1,0 +1,55 @@
+{
+  "name": "footer",
+  "display_name": "Footer",
+  "is_root": true,
+  "is_nestable": false,
+  "group": "Single Types",
+  "schema": {
+    "Copyright": {
+      "pos": 0,
+      "type": "text",
+      "translatable": true
+    },
+    "InstagramLink": {
+      "pos": 1,
+      "type": "text",
+      "translatable": true
+    },
+    "FacebookURL": {
+      "pos": 2,
+      "type": "text",
+      "translatable": true
+    },
+    "TermsURL": {
+      "pos": 3,
+      "type": "text",
+      "translatable": true
+    },
+    "PrivacyURL": {
+      "pos": 4,
+      "type": "text",
+      "translatable": true
+    },
+    "logo": {
+      "pos": 5,
+      "type": "asset",
+      "translatable": true
+    },
+    "market": {
+      "pos": 6,
+      "type": "option",
+      "source": "internal_stories",
+      "filter_content_type": [
+        "market"
+      ]
+    },
+    "columns": {
+      "pos": 7,
+      "type": "options",
+      "source": "internal_stories",
+      "filter_content_type": [
+        "footer_column"
+      ]
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "instagram_feed",
+  "display_name": "Instagram Feed",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Carousels",
+  "schema": {
+    "title": {
+      "pos": 0,
+      "type": "text"
+    },
+    "posts": {
+      "pos": 1,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "posts"
+      ]
+    }
+  }
+}

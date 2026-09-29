@@ -1,0 +1,41 @@
+{
+  "name": "plp_experience",
+  "display_name": "plpExperience",
+  "is_root": true,
+  "is_nestable": false,
+  "group": "Single Types",
+  "schema": {
+    "filterConfig": {
+      "pos": 0,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "filter_configuration"
+      ]
+    },
+    "gridConfig": {
+      "pos": 1,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "product_grid_cofiguration"
+      ]
+    },
+    "toolbarConfig": {
+      "pos": 2,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "toolbar_configuration"
+      ]
+    },
+    "bannerConfig": {
+      "pos": 3,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "banner_configuration"
+      ]
+    }
+  }
+}

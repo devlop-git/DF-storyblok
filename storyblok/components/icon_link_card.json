@@ -1,0 +1,34 @@
+{
+  "name": "icon_link_card",
+  "display_name": "Icon Link Card",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Carousels",
+  "schema": {
+    "title": {
+      "pos": 0,
+      "type": "text"
+    },
+    "desktopMedia": {
+      "pos": 1,
+      "type": "asset"
+    },
+    "mobileMedia": {
+      "pos": 2,
+      "type": "asset"
+    },
+    "tabMedia": {
+      "pos": 3,
+      "type": "asset"
+    },
+    "CTALabel": {
+      "pos": 4,
+      "type": "text",
+      "default_value": "Read More"
+    },
+    "CTAUrl": {
+      "pos": 5,
+      "type": "text"
+    }
+  }
+}

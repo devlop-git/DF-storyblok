@@ -1,0 +1,43 @@
+{
+  "name": "filter_configuration",
+  "display_name": "Filter configuration",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Plp",
+  "schema": {
+    "position": {
+      "pos": 0,
+      "type": "option",
+      "options": [
+        {
+          "name": "left",
+          "value": "left"
+        },
+        {
+          "name": "center",
+          "value": "center"
+        },
+        {
+          "name": "right",
+          "value": "right"
+        }
+      ],
+      "default_value": "left"
+    },
+    "sticky": {
+      "pos": 1,
+      "type": "boolean",
+      "default_value": "true"
+    },
+    "width": {
+      "pos": 2,
+      "type": "number",
+      "default_value": "280"
+    },
+    "order": {
+      "pos": 3,
+      "type": "textarea",
+      "description": "JSON value"
+    }
+  }
+}

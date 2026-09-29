@@ -1,0 +1,81 @@
+{
+  "name": "image_text_section",
+  "display_name": "Image Text Section",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Sections",
+  "schema": {
+    "topTitle": {
+      "pos": 0,
+      "type": "text"
+    },
+    "topDescription": {
+      "pos": 1,
+      "type": "textarea"
+    },
+    "title": {
+      "pos": 2,
+      "type": "richtext"
+    },
+    "description": {
+      "pos": 3,
+      "type": "richtext"
+    },
+    "desktopImage": {
+      "pos": 4,
+      "type": "asset"
+    },
+    "buttonText": {
+      "pos": 5,
+      "type": "text"
+    },
+    "buttonURL": {
+      "pos": 6,
+      "type": "text"
+    },
+    "imagePosition": {
+      "pos": 7,
+      "type": "option",
+      "options": [
+        {
+          "name": "left",
+          "value": "left"
+        },
+        {
+          "name": "right",
+          "value": "right"
+        }
+      ]
+    },
+    "mobileImage": {
+      "pos": 8,
+      "type": "asset"
+    },
+    "tabImage": {
+      "pos": 9,
+      "type": "asset"
+    },
+    "contentAlignment": {
+      "pos": 10,
+      "type": "option",
+      "options": [
+        {
+          "name": "left",
+          "value": "left"
+        },
+        {
+          "name": "right",
+          "value": "right"
+        }
+      ]
+    },
+    "iconItems": {
+      "pos": 11,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "icon_row_item"
+      ]
+    }
+  }
+}

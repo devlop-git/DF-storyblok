@@ -1,0 +1,37 @@
+{
+  "name": "reviews",
+  "display_name": "Reviews",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Social Proof",
+  "schema": {
+    "heading": {
+      "pos": 0,
+      "type": "text"
+    },
+    "trustpilotImage": {
+      "pos": 1,
+      "type": "multiasset"
+    },
+    "googleImage": {
+      "pos": 2,
+      "type": "multiasset"
+    },
+    "gap": {
+      "pos": 3,
+      "type": "number"
+    },
+    "desktopColumns": {
+      "pos": 4,
+      "type": "number"
+    },
+    "tabColumns": {
+      "pos": 5,
+      "type": "number"
+    },
+    "mobileColumn": {
+      "pos": 6,
+      "type": "number"
+    }
+  }
+}

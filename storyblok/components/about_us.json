@@ -1,0 +1,14 @@
+{
+  "name": "about_us",
+  "display_name": "About Us",
+  "is_root": true,
+  "is_nestable": false,
+  "group": "Single Types",
+  "schema": {
+    "image": {
+      "pos": 0,
+      "type": "asset",
+      "translatable": true
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "toolbar_configuration",
+  "display_name": "Toolbar Configuration",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Plp",
+  "schema": {
+    "showSort": {
+      "pos": 0,
+      "type": "boolean"
+    },
+    "showProductCount": {
+      "pos": 1,
+      "type": "boolean"
+    },
+    "showFilterButton": {
+      "pos": 2,
+      "type": "boolean"
+    }
+  }
+}

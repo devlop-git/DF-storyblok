@@ -1,0 +1,68 @@
+{
+  "name": "promotion_banner",
+  "display_name": "Promotion Banner",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Banners",
+  "schema": {
+    "title": {
+      "pos": 0,
+      "type": "text"
+    },
+    "description": {
+      "pos": 1,
+      "type": "richtext"
+    },
+    "desktopBgImage": {
+      "pos": 2,
+      "type": "asset"
+    },
+    "btnText": {
+      "pos": 3,
+      "type": "text"
+    },
+    "btnLink": {
+      "pos": 4,
+      "type": "text"
+    },
+    "mobileBgImage": {
+      "pos": 5,
+      "type": "asset"
+    },
+    "tabBgImage": {
+      "pos": 6,
+      "type": "asset"
+    },
+    "disclaimer": {
+      "pos": 7,
+      "type": "text"
+    },
+    "contentAlignment": {
+      "pos": 8,
+      "type": "option",
+      "options": [
+        {
+          "name": "left",
+          "value": "left"
+        },
+        {
+          "name": "center",
+          "value": "center"
+        },
+        {
+          "name": "right",
+          "value": "right"
+        }
+      ],
+      "default_value": "left"
+    },
+    "links": {
+      "pos": 9,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "chip_link"
+      ]
+    }
+  }
+}

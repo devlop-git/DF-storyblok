@@ -1,0 +1,13 @@
+{
+  "name": "table_column",
+  "display_name": "Table Column",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Tables",
+  "schema": {
+    "label": {
+      "pos": 0,
+      "type": "text"
+    }
+  }
+}

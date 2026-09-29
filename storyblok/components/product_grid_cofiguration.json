@@ -1,0 +1,22 @@
+{
+  "name": "product_grid_cofiguration",
+  "display_name": "Product Grid Cofiguration",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Plp",
+  "schema": {
+    "desktopColumns": {
+      "pos": 0,
+      "type": "number",
+      "default_value": "4"
+    },
+    "mobileColumns": {
+      "pos": 1,
+      "type": "number"
+    },
+    "tabColumns": {
+      "pos": 2,
+      "type": "number"
+    }
+  }
+}

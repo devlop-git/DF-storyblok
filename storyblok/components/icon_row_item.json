@@ -1,0 +1,20 @@
+{
+  "name": "icon_row_item",
+  "display_name": "Icon Row Item",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Sections",
+  "schema": {
+    "icon": {
+      "pos": 0,
+      "type": "asset",
+      "filetypes": [
+        "images"
+      ]
+    },
+    "label": {
+      "pos": 1,
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "name": "pdp_page",
+  "display_name": "PDP Page",
+  "is_root": true,
+  "is_nestable": false,
+  "group": "Collection Types",
+  "schema": {
+    "title": {
+      "pos": 0,
+      "type": "text",
+      "translatable": true
+    },
+    "slug": {
+      "pos": 1,
+      "type": "text",
+      "translatable": true
+    },
+    "markets": {
+      "pos": 2,
+      "type": "options",
+      "source": "internal_stories",
+      "filter_content_type": [
+        "market"
+      ]
+    },
+    "pdp_section": {
+      "pos": 3,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "reviews",
+        "newsletter",
+        "contact_us_form",
+        "slides",
+        "new_home_page",
+        "image_text_section",
+        "hero_banner",
+        "promotion_banner_grid",
+        "image_grid",
+        "image_grid_card",
+        "feature_item",
+        "feature_highlights",
+        "posts",
+        "instagram_feed",
+        "image_card_carousel",
+        "icon_link_card",
+        "image_banner"
+      ]
+    }
+  }
+}

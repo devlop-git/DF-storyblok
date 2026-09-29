@@ -1,0 +1,57 @@
+{
+  "name": "home_page",
+  "display_name": "HomePage",
+  "is_root": true,
+  "is_nestable": false,
+  "group": "Collection Types",
+  "schema": {
+    "Title": {
+      "pos": 0,
+      "type": "text",
+      "translatable": true,
+      "default_value": "Homepage EN"
+    },
+    "Sections": {
+      "pos": 1,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "promotion_banner",
+        "new_home_page",
+        "hero_banner",
+        "slides",
+        "reviews",
+        "posts",
+        "newsletter",
+        "contact_us_form",
+        "instagram_feed",
+        "image_text_section",
+        "feature_item",
+        "feature_highlights",
+        "image_card_carousel",
+        "toolbar_configuration",
+        "product_listing",
+        "product_grid_cofiguration",
+        "filter_configuration",
+        "banner_configuration",
+        "image_grid",
+        "image_grid_card",
+        "promotion_banner_grid",
+        "read_more_content",
+        "faq",
+        "faq_items",
+        "icon_link_card",
+        "banner_info",
+        "image_banner"
+      ]
+    },
+    "market": {
+      "pos": 2,
+      "type": "option",
+      "source": "internal_stories",
+      "filter_content_type": [
+        "market"
+      ]
+    }
+  }
+}

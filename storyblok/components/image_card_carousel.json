@@ -1,0 +1,70 @@
+{
+  "name": "image_card_carousel",
+  "display_name": "Image Card Carousel",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Carousels",
+  "schema": {
+    "title": {
+      "pos": 0,
+      "type": "richtext"
+    },
+    "guideItem": {
+      "pos": 1,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "icon_link_card"
+      ]
+    },
+    "navStyle": {
+      "pos": 2,
+      "type": "option",
+      "options": [
+        {
+          "name": "dots",
+          "value": "dots"
+        },
+        {
+          "name": "arrows",
+          "value": "arrows"
+        }
+      ],
+      "default_value": "dots"
+    },
+    "arrowPosition": {
+      "pos": 3,
+      "type": "option",
+      "options": [
+        {
+          "name": "top-right",
+          "value": "top-right"
+        },
+        {
+          "name": "bottom",
+          "value": "bottom"
+        },
+        {
+          "name": "sides",
+          "value": "sides"
+        }
+      ],
+      "default_value": "top-right"
+    },
+    "cardLabelPosition": {
+      "pos": 4,
+      "type": "option",
+      "options": [
+        {
+          "name": "overlay",
+          "value": "overlay"
+        },
+        {
+          "name": "below",
+          "value": "below"
+        }
+      ],
+      "default_value": "overlay"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "name": "faq",
+  "display_name": "FAQ",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Content Blocks",
+  "schema": {
+    "title": {
+      "pos": 0,
+      "type": "text"
+    },
+    "description": {
+      "pos": 1,
+      "type": "textarea"
+    },
+    "faqItem": {
+      "pos": 2,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "faq_items"
+      ]
+    },
+    "titlePosition": {
+      "pos": 3,
+      "type": "option",
+      "options": [
+        {
+          "name": "left",
+          "value": "left"
+        },
+        {
+          "name": "right",
+          "value": "right"
+        },
+        {
+          "name": "top",
+          "value": "top"
+        }
+      ],
+      "default_value": "left"
+    },
+    "image": {
+      "pos": 4,
+      "type": "asset",
+      "filetypes": [
+        "images"
+      ]
+    }
+  }
+}

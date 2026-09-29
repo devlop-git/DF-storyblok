@@ -1,0 +1,29 @@
+{
+  "name": "banner_configuration",
+  "display_name": "Banner configuration",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Plp",
+  "schema": {
+    "showBanner": {
+      "pos": 0,
+      "type": "boolean"
+    },
+    "title": {
+      "pos": 1,
+      "type": "text"
+    },
+    "desktopBannerImage": {
+      "pos": 2,
+      "type": "asset"
+    },
+    "mobileBannerImage": {
+      "pos": 3,
+      "type": "asset"
+    },
+    "tabBannerImage": {
+      "pos": 4,
+      "type": "asset"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "name": "feature_line",
+  "display_name": "Feature Line",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Grids",
+  "schema": {
+    "text": {
+      "pos": 0,
+      "type": "textarea"
+    },
+    "url": {
+      "pos": 1,
+      "type": "text"
+    },
+    "variant": {
+      "pos": 2,
+      "type": "option",
+      "options": [
+        {
+          "name": "heading",
+          "value": "heading"
+        },
+        {
+          "name": "body",
+          "value": "body"
+        },
+        {
+          "name": "cta",
+          "value": "cta"
+        }
+      ],
+      "default_value": "body"
+    },
+    "fontColor": {
+      "pos": 3,
+      "type": "text"
+    },
+    "fontFamily": {
+      "pos": 4,
+      "type": "text"
+    }
+  }
+}

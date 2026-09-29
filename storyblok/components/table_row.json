@@ -1,0 +1,17 @@
+{
+  "name": "table_row",
+  "display_name": "Table Row",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Tables",
+  "schema": {
+    "values": {
+      "pos": 0,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "table_cell"
+      ]
+    }
+  }
+}

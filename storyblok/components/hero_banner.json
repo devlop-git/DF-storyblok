@@ -1,0 +1,60 @@
+{
+  "name": "hero_banner",
+  "display_name": "Hero Slide",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Sections",
+  "schema": {
+    "title": {
+      "pos": 0,
+      "type": "text"
+    },
+    "subTitle": {
+      "pos": 1,
+      "type": "textarea"
+    },
+    "buttonText": {
+      "pos": 2,
+      "type": "text"
+    },
+    "buttonLink": {
+      "pos": 3,
+      "type": "text"
+    },
+    "desktopImage": {
+      "pos": 4,
+      "type": "multiasset",
+      "required": true
+    },
+    "mobileImage": {
+      "pos": 5,
+      "type": "multiasset"
+    },
+    "altText": {
+      "pos": 6,
+      "type": "textarea"
+    },
+    "tabImage": {
+      "pos": 7,
+      "type": "asset"
+    },
+    "contentAlignment": {
+      "pos": 8,
+      "type": "option",
+      "options": [
+        {
+          "name": "Left",
+          "value": "Left"
+        },
+        {
+          "name": "Center",
+          "value": "Center"
+        },
+        {
+          "name": "Right",
+          "value": "Right"
+        }
+      ]
+    }
+  }
+}

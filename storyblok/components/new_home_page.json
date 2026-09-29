@@ -1,0 +1,17 @@
+{
+  "name": "new_home_page",
+  "display_name": "Hero Carousel",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Sections",
+  "schema": {
+    "heroSlides": {
+      "pos": 0,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "hero_banner"
+      ]
+    }
+  }
+}

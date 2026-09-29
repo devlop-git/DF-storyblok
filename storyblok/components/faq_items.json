@@ -1,0 +1,17 @@
+{
+  "name": "faq_items",
+  "display_name": "FAQ Items",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Content Blocks",
+  "schema": {
+    "question": {
+      "pos": 0,
+      "type": "text"
+    },
+    "answer": {
+      "pos": 1,
+      "type": "textarea"
+    }
+  }
+}

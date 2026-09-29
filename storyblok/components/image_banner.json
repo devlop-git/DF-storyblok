@@ -1,0 +1,55 @@
+{
+  "name": "image_banner",
+  "display_name": "Image Banner",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Banners",
+  "schema": {
+    "title": {
+      "pos": 0,
+      "type": "text"
+    },
+    "description": {
+      "pos": 1,
+      "type": "richtext"
+    },
+    "desktopImage": {
+      "pos": 2,
+      "type": "asset"
+    },
+    "mobileImage": {
+      "pos": 3,
+      "type": "asset"
+    },
+    "tabImage": {
+      "pos": 4,
+      "type": "asset"
+    },
+    "imagePosition": {
+      "pos": 5,
+      "type": "option",
+      "options": [
+        {
+          "name": "left",
+          "value": "left"
+        },
+        {
+          "name": "right",
+          "value": "right"
+        }
+      ]
+    },
+    "buttonText": {
+      "pos": 6,
+      "type": "text"
+    },
+    "buttonURL": {
+      "pos": 7,
+      "type": "text"
+    },
+    "bgColor": {
+      "pos": 8,
+      "type": "text"
+    }
+  }
+}

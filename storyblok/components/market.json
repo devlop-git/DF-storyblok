@@ -1,0 +1,118 @@
+{
+  "name": "market",
+  "display_name": "Market",
+  "is_root": true,
+  "is_nestable": false,
+  "group": "Collection Types",
+  "schema": {
+    "name": {
+      "pos": 0,
+      "type": "text",
+      "translatable": true
+    },
+    "slug": {
+      "pos": 1,
+      "type": "text",
+      "translatable": true
+    },
+    "domain": {
+      "pos": 2,
+      "type": "text",
+      "translatable": true
+    },
+    "currency": {
+      "pos": 3,
+      "type": "option",
+      "options": [
+        {
+          "name": "EUR",
+          "value": "EUR"
+        },
+        {
+          "name": "GBP",
+          "value": "GBP"
+        },
+        {
+          "name": "CHF",
+          "value": "CHF"
+        }
+      ],
+      "translatable": true
+    },
+    "defaultLocale": {
+      "pos": 4,
+      "type": "option",
+      "options": [
+        {
+          "name": "de",
+          "value": "de"
+        },
+        {
+          "name": "en",
+          "value": "en"
+        },
+        {
+          "name": "fr",
+          "value": "fr"
+        }
+      ],
+      "translatable": true
+    },
+    "supportedLocale": {
+      "pos": 5,
+      "type": "textarea",
+      "description": "JSON value",
+      "translatable": true
+    },
+    "theme": {
+      "pos": 6,
+      "type": "option",
+      "options": [
+        {
+          "name": "default",
+          "value": "default"
+        },
+        {
+          "name": "luxury",
+          "value": "luxury"
+        },
+        {
+          "name": "dark",
+          "value": "dark"
+        }
+      ],
+      "translatable": true
+    },
+    "TrustpilotWidgetID": {
+      "pos": 7,
+      "type": "text",
+      "translatable": true
+    },
+    "GooglePlaceID": {
+      "pos": 8,
+      "type": "text",
+      "translatable": true
+    },
+    "active": {
+      "pos": 9,
+      "type": "boolean",
+      "translatable": true
+    },
+    "home_page": {
+      "pos": 10,
+      "type": "option",
+      "source": "internal_stories",
+      "filter_content_type": [
+        "home_page"
+      ]
+    },
+    "plp_page": {
+      "pos": 11,
+      "type": "option",
+      "source": "internal_stories",
+      "filter_content_type": [
+        "plp_page"
+      ]
+    }
+  }
+}

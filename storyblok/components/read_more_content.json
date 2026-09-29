@@ -1,0 +1,29 @@
+{
+  "name": "read_more_content",
+  "display_name": "ReadMoreContent",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Content Blocks",
+  "schema": {
+    "title": {
+      "pos": 0,
+      "type": "text"
+    },
+    "previewContent": {
+      "pos": 1,
+      "type": "textarea"
+    },
+    "expandedContent": {
+      "pos": 2,
+      "type": "richtext"
+    },
+    "readMoreLabel": {
+      "pos": 3,
+      "type": "text"
+    },
+    "readLessLabel": {
+      "pos": 4,
+      "type": "text"
+    }
+  }
+}

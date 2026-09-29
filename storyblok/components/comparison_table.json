@@ -1,0 +1,53 @@
+{
+  "name": "comparison_table",
+  "display_name": "Comparison Table",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Tables",
+  "schema": {
+    "heading": {
+      "pos": 0,
+      "type": "text"
+    },
+    "description": {
+      "pos": 1,
+      "type": "textarea"
+    },
+    "headerColor": {
+      "pos": 2,
+      "type": "text",
+      "default_value": "#A0704F"
+    },
+    "highlightColumnColor": {
+      "pos": 3,
+      "type": "text",
+      "default_value": "#A0704F"
+    },
+    "columns": {
+      "pos": 4,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "table_column"
+      ]
+    },
+    "rows": {
+      "pos": 5,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "table_row"
+      ]
+    },
+    "highlightFirstColumn": {
+      "pos": 6,
+      "type": "boolean",
+      "default_value": "true"
+    },
+    "groupsCount": {
+      "pos": 7,
+      "type": "number",
+      "default_value": "1"
+    }
+  }
+}

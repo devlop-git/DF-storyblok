@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# df-storyblok-poc
 
-## Getting Started
+Next.js frontend for Storyblok (the equivalent of the `frontend/` folder in the Strapi project).
+Storyblok is hosted, so there is no CMS server to run — pages and blocks are managed at
+https://app.storyblok.com. Pages also pull data from our Node API.
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+Storyblok (hosted CMS)  ──content──▶  this app (Next.js)  ◀──data──  Node API
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Getting started
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. Copy `.env.example` to `.env.local` and fill in:
+   - `STORYBLOK_DELIVERY_API_TOKEN` — Storyblok **Preview** token (Settings → Access Tokens)
+   - `NODE_API_URL` (and `NODE_API_KEY` if needed)
+2. `npm install`
+3. `npm run dev:https` and open https://localhost:3000
+4. In Storyblok, set Settings → Visual Editor → preview URL to `https://localhost:3000/`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## How it works
 
-## Learn More
+- **Pages**: every story is served at its slug — `home` → `/`, `about` → `/about`.
+  See `src/app/page.js` and `src/app/[...slug]/page.js`.
+- **Blocks**: each block in the Storyblok Block Library maps to a component in
+  `src/components/storyblok/`, registered by technical name in `src/components/storyblok/index.js`.
+  To add a block: create it in the UI → add a component → register it.
+- **Node API**: the `node_api_list` block (fields `title`, `endpoint`, `limit`) fetches from the
+  Node API on the server via `src/lib/nodeApi.js`. Editors place it on any page.
+- **Content version**: draft in development, published in production
+  (override with `STORYBLOK_VERSION`). Published pages refresh every 60 seconds.
 
-To learn more about Next.js, take a look at the following resources:
+## Strapi → Storyblok terms
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Strapi                    | Storyblok                                  |
+| ------------------------- | ------------------------------------------ |
+| Collection / Single type  | Content type block (e.g. `page`)           |
+| Component / Dynamic zone  | Nestable block + a "Blocks" field (`body`) |
+| Entry                     | Story                                      |
+| Content-Type Builder      | Block Library                              |
+| API token                 | Access token (Preview / Public)            |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Migrating models from Strapi
 
-## Deploy on Vercel
+`scripts/migrate-strapi-schema.mjs` reads the Strapi schema files (`cms/src/api/**/schema.json` and
+`cms/src/components/**`) and converts them to Storyblok blocks:
+collection/single types → content type blocks, components → nestable blocks (one folder per category),
+dynamic zones → Blocks fields limited to the same components.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run migrate:schema              # dry run: writes storyblok/components/*.json and lists items to review
+npm run migrate:schema -- --push    # creates/updates the blocks in the space (safe to re-run)
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`--push` needs `STORYBLOK_SPACE_ID`, `STORYBLOK_MANAGEMENT_TOKEN` and `STORYBLOK_REGION` in `.env.local`.
+
+## Backups
+
+Content lives on Storyblok's servers (no local database like Strapi's `.tmp/data.db`).
+To restore a single story, use its **version history** in Storyblok, and deleted stories
+go to the **trash** first. For everything else (a deleted field or block, bulk mistakes,
+moving to a company space), export the whole space into the repo:
+
+```bash
+npm run backup:storyblok                    # storyblok/backup/<date>/ as JSON
+npm run backup:storyblok -- --with-assets   # also downloads the image files (not committed)
+```
+
+It exports blocks, block folders, every story (drafts included), image details and
+datasources. Commit the JSON so git history also works as a content history. Needs
+`STORYBLOK_SPACE_ID`, `STORYBLOK_MANAGEMENT_TOKEN` and `STORYBLOK_REGION` in `.env.local`.
+
+## Versioning block schemas (optional)
+
+Blocks live in Storyblok, not in this repo. To keep a copy in git, use the Storyblok CLI:
+
+```bash
+npx storyblok login
+npx storyblok components pull --space <SPACE_ID>
+```
+
+Run `npx storyblok --help` for the exact options of your CLI version.

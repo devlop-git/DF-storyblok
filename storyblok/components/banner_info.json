@@ -1,0 +1,21 @@
+{
+  "name": "banner_info",
+  "display_name": "SEO Banner Info",
+  "is_root": false,
+  "is_nestable": true,
+  "group": "Banners",
+  "schema": {
+    "title": {
+      "pos": 0,
+      "type": "text"
+    },
+    "description": {
+      "pos": 1,
+      "type": "richtext"
+    },
+    "bgColor": {
+      "pos": 2,
+      "type": "text"
+    }
+  }
+}

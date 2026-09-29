@@ -1,0 +1,51 @@
+{
+  "name": "plp_page",
+  "display_name": "PLP Page",
+  "is_root": true,
+  "is_nestable": false,
+  "group": "Collection Types",
+  "schema": {
+    "title": {
+      "pos": 0,
+      "type": "text",
+      "required": true,
+      "translatable": true
+    },
+    "slug": {
+      "pos": 1,
+      "type": "text",
+      "required": true,
+      "translatable": true
+    },
+    "markets": {
+      "pos": 2,
+      "type": "options",
+      "source": "internal_stories",
+      "filter_content_type": [
+        "market"
+      ]
+    },
+    "plp_section": {
+      "pos": 3,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "banner_info",
+        "image_banner",
+        "banner_configuration",
+        "faq",
+        "feature_highlights",
+        "image_grid",
+        "image_grid_card",
+        "promotion_banner_grid",
+        "newsletter",
+        "contact_us_form",
+        "read_more_content",
+        "product_listing",
+        "rich_text",
+        "faq_items"
+      ],
+      "required": true
+    }
+  }
+}
