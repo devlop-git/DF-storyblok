@@ -69,7 +69,7 @@ function IconControl({ option, current, onSelect }) {
             title={v.displayName}
             onClick={() => onSelect(v.valueCode)}
             className={`flex h-8 w-8 items-center justify-center rounded-full text-[9px] font-medium transition ${
-              active ? "ring-2 ring-[#9C6D4B] ring-offset-1" : ""
+              active ? "ring-2 ring-brand-pdp ring-offset-1" : ""
             } ${disabled ? "cursor-not-allowed opacity-40" : "cursor-pointer"}`}
             style={{ backgroundColor: metalColor(v.valueName), color: "#5A4A38" }}
           >
@@ -95,7 +95,7 @@ function PillControl({ option, current, onSelect, className = "" }) {
             onClick={() => onSelect(v.valueCode)}
             className={`min-w-[54px] border px-3 py-2 text-center text-xs transition ${
               active
-                ? "border-[#9C6D4B] bg-[#9C6D4B] text-white"
+                ? "border-brand-pdp bg-brand-pdp text-white"
                 : "border-[#E0D5C6] bg-white text-[#4A4A4A] hover:border-[#C9B79E]"
             } ${disabled ? "cursor-not-allowed opacity-40" : "cursor-pointer"}`}
           >
@@ -170,7 +170,7 @@ export default function PdpConfigurator({
           <button
             type="button"
             onClick={() => setShowMore((s) => !s)}
-            className="flex w-full items-center justify-center gap-1 py-3 text-sm font-medium text-[#9C6D4B]"
+            className="flex w-full items-center justify-center gap-1 py-3 text-sm font-medium text-brand-pdp"
           >
             More Options
             <FiChevronDown

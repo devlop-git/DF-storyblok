@@ -9,7 +9,12 @@
     "start": "next start",
     "lint": "eslint",
     "migrate:schema": "node --env-file-if-exists=.env.local scripts/migrate-strapi-schema.mjs",
-    "backup:storyblok": "node --env-file-if-exists=.env.local scripts/backup-storyblok.mjs"
+    "backup:storyblok": "node --env-file-if-exists=.env.local scripts/backup-storyblok.mjs",
+    "dev:ab": "node --env-file=.env.austenblake node_modules/next/dist/bin/next dev -p 3001 --experimental-https --experimental-https-key certificates/localhost-key.pem --experimental-https-cert certificates/localhost.pem",
+    "build:ab": "node --env-file=.env.austenblake node_modules/next/dist/bin/next build",
+    "start:ab": "node --env-file=.env.austenblake node_modules/next/dist/bin/next start -p 3001",
+    "migrate:schema:ab": "node --env-file=.env.austenblake scripts/migrate-strapi-schema.mjs",
+    "backup:storyblok:ab": "node --env-file=.env.austenblake scripts/backup-storyblok.mjs"
   },
   "dependencies": {
     "@storyblok/react": "^7.3.1",

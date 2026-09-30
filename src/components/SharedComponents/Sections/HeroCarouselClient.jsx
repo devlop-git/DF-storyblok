@@ -104,7 +104,7 @@ export default function HeroCarouselClient({ slides }) {
                         <div
                           role="heading"
                           aria-level={2}
-                          className={`font-serif text-[#ffffff] font-light leading-tight [&_a]:underline [&_em]:text-[#A0704F] ${TITLE_SIZES}`}
+                          className={`font-serif text-[#ffffff] font-light leading-tight [&_a]:underline [&_em]:text-brand-accent ${TITLE_SIZES}`}
                           dangerouslySetInnerHTML={{ __html: slide.titleHtml }}
                         />
                       )}

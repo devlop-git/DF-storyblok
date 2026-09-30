@@ -80,7 +80,7 @@ export default function InstagramFeed({ data }) {
                 {prefix}
               </h2>
               {handle && (
-                <span className="text-[#A5744A] text-[28px] lg:text-[36px]">
+                <span className="text-brand-primary text-[28px] lg:text-[36px]">
                   @{handle}
                 </span>
               )}

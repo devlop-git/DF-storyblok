@@ -16,7 +16,7 @@ export default function DesktopNavigation({ navigation = [] }) {
             <li key={category_id} className="group relative">
               {/* Parent Category: menu grouping only, not a real PLP page
                   (isLastLevel: false), so it's a hover trigger, not a link. */}
-              <span className="flex h-10 items-center gap-1 px-5 text-[13px] font-medium uppercase tracking-wide text-[#111] transition-colors group-hover:text-[#A5744A]">
+              <span className="flex h-10 items-center gap-1 px-5 text-[13px] font-medium uppercase tracking-wide text-[#111] transition-colors group-hover:text-brand-primary">
                 {parentName}
 
                 {children.length > 0 && (
@@ -51,7 +51,7 @@ export default function DesktopNavigation({ navigation = [] }) {
                   "
                 >
                   <div className="px-8 py-6">
-                    <p className="mb-4 text-xs font-semibold tracking-wide text-[#A5744A]">
+                    <p className="mb-4 text-xs font-semibold tracking-wide text-brand-primary">
                       STYLE
                     </p>
                     <ul className="grid grid-cols-3 gap-x-8 gap-y-4">
@@ -62,7 +62,7 @@ export default function DesktopNavigation({ navigation = [] }) {
                           <li key={subCategory.category_id}>
                             <Link
                               href={`/${slugify(parentName)}/${slugify(subCategoryName)}`}
-                              className="text-sm text-gray-700 transition-colors hover:text-[#A5744A]"
+                              className="text-sm text-gray-700 transition-colors hover:text-brand-primary"
                             >
                               {subCategoryName}
                             </Link>

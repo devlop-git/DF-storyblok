@@ -2,14 +2,12 @@
 
 import { useState } from "react";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import { brand } from "@/brands";
 import countryCodes from "@/lib/countryCodes";
 
-// Add more markets here -- each needs an entry in `countryCodes`
-// (src/lib/countryCodes.js) for its flag to render.
-const MARKETS = [
-  "US", "UK", "FR", "IE", "EU", "AU", "NZ", "CH", "ES", "BE", "AT",
-  "SE", "NL", "IT", "NO", "DK", "SG", "FI", "PL", "CZ", "PT", "AE",
-];
+// Per brand (src/brands/*.js -> shopFromMarkets). Each needs an entry in
+// `countryCodes` (src/lib/countryCodes.js) for its flag to render.
+const MARKETS = brand.shopFromMarkets;
 
 const MarketDropdown = ({ market }) => {
   const [isOpen, setIsOpen] = useState(false);

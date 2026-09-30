@@ -19,7 +19,7 @@ export default function ProductListing({ data, commerce }) {
   if (!commerce) {
     // e.g. previewing the PLP Page story at its own URL instead of a category URL.
     return (
-      <div className="mx-5 lg:mx-18 border border-dashed border-[#d7b89c] p-10 text-center text-sm text-[#8b6b49]">
+      <div className="mx-5 lg:mx-18 border border-dashed border-[#d7b89c] p-10 text-center text-sm text-brand-filter">
         Product listing: products from the Commerce API appear here on category pages
         (e.g. /engagement-rings/solitaire).
       </div>

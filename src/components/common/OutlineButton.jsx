@@ -18,14 +18,14 @@ export default function OutlineButton({
         items-center
         justify-center
         border
-        border-[#A5744A]
+        border-brand-primary
         bg-white
         text-base
         font-semibold
-        text-[#A5744A]
+        text-brand-primary
         transition-all
         duration-300
-        hover:bg-[#A5744A]
+        hover:bg-brand-primary
         hover:text-white
         hover:cursor-pointer
         disabled:cursor-not-allowed

@@ -48,7 +48,7 @@ export default function Toolbar({
               }}
               className={`w-full px-6 py-4 text-left text-sm transition hover:bg-[#F8F8F8] ${
                 option.id === selectedSort
-                  ? "bg-[#F8F8F8] font-medium text-[#A5744A]"
+                  ? "bg-[#F8F8F8] font-medium text-brand-primary"
                   : "text-[#1D1D1D]"
               }`}
             >

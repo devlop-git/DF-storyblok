@@ -15,7 +15,13 @@ import path from "node:path";
 
 const WITH_ASSETS = process.argv.includes("--with-assets");
 const today = new Date().toISOString().slice(0, 10);
-const OUT_DIR = path.resolve("storyblok/backup", today);
+// Diamonds Factory keeps storyblok/backup/<date>; other brands get their own folder.
+const brandId = process.env.NEXT_PUBLIC_BRAND || "diamondsfactory";
+const OUT_DIR = path.resolve(
+  "storyblok/backup",
+  ...(brandId === "diamondsfactory" ? [] : [brandId]),
+  today,
+);
 
 // Management API hosts per region (same as migrate-strapi-schema.mjs).
 const MAPI_HOSTS = {

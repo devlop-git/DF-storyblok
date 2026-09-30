@@ -4,10 +4,10 @@
 // of every size.
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { FaRegQuestionCircle } from "react-icons/fa";
+import { brand } from "@/brands";
 
-// External sizing guide the shopper is sent to via "Ring Size Guide".
-const RING_SIZE_GUIDE_URL =
-  "https://www.diamondsfactory.de/anleitung/ringmass-anleitung";
+// External sizing guide the shopper is sent to via "Ring Size Guide" (per brand).
+const RING_SIZE_GUIDE_URL = brand.links.ringSizeGuide;
 
 export default function RingSizeControl({ option, current, onSelect, open, onToggle }) {
   const selected = option.values.find((v) => v.valueCode === current);
@@ -32,7 +32,7 @@ export default function RingSizeControl({ option, current, onSelect, open, onTog
           href={RING_SIZE_GUIDE_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="whitespace-nowrap text-xs font-medium text-[#9C6D4B] underline"
+          className="whitespace-nowrap text-xs font-medium text-brand-pdp underline"
         >
           Ring Size Guide
         </a>
@@ -41,7 +41,7 @@ export default function RingSizeControl({ option, current, onSelect, open, onTog
           type="button"
           onClick={onToggle}
           aria-label={open ? "Collapse ring size options" : "Expand ring size options"}
-          className="text-[#9C7A58]"
+          className="text-brand-muted"
         >
           {open ? <FiChevronUp /> : <FiChevronDown />}
         </button>
@@ -69,7 +69,7 @@ export default function RingSizeControl({ option, current, onSelect, open, onTog
                   onClick={() => onSelect(v.valueCode)}
                   className={`border px-2 py-2 text-center text-xs transition ${
                     active
-                      ? "border-[#9C6D4B] bg-[#9C6D4B] text-white"
+                      ? "border-brand-pdp bg-brand-pdp text-white"
                       : "border-[#E0D5C6] bg-white text-[#4A4A4A] hover:border-[#C9B79E]"
                   } ${disabled ? "cursor-not-allowed opacity-40" : "cursor-pointer"}`}
                 >

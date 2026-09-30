@@ -7,6 +7,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import HeaderTabs from "./HeaderTabs";
 import TopAnnouncementBar from "./TopAnnouncementBar";
 import LanguageDropdown from "./LanguageDropdown";
+import { brand } from "@/brands";
 import { categoryName, slugify } from "@/utils/slugify";
 
 export default function MobileNavigation({ navigation = [], languages, locale }) {
@@ -33,7 +34,7 @@ export default function MobileNavigation({ navigation = [], languages, locale })
         </button>
 
         <h2 className="md:absolute md:left-[20%] md:-translate-x-1/2 font-serif text-[12px] tracking-wide">
-          DIAMONDS FACTORY
+          {brand.logoText}
         </h2>
 
         <div className="ml-auto">
@@ -66,7 +67,7 @@ export default function MobileNavigation({ navigation = [], languages, locale })
             </button>
 
             <h2 className="font-serif text-[14px] tracking-wide">
-              DIAMONDS FACTORY
+              {brand.logoText}
             </h2>
 
             <HeaderTabs />
@@ -108,7 +109,7 @@ export default function MobileNavigation({ navigation = [], languages, locale })
                 >
                   <HiChevronLeft className="text-2xl" />
 
-                  <span className="text-[12px] font-medium uppercase text-[#A5744A]">
+                  <span className="text-[12px] font-medium uppercase text-brand-primary">
                     {categoryName(selectedCategory)}
                   </span>
                 </button>

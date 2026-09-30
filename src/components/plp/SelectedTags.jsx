@@ -54,7 +54,7 @@ export default function SelectedTags({
 
   return (
     <div className="flex lg:flex-row flex-col flex-wrap mt-6 lg:mt-0 lg:gap-2 mb-5 gap-y-2 lg:gap-y-0">
-      <p className="lg:hidden uppercase text-xs text-[#976649]">filter by:</p>
+      <p className="lg:hidden uppercase text-xs text-brand-filter-strong">filter by:</p>
       {tags.map((tag) => (
         <button
           key={

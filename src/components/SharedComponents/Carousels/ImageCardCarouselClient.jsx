@@ -59,7 +59,7 @@ export default function ImageCardCarouselClient({ data, titleHtml }) {
 
   const heading = titleHtml && (
     <div
-      className={`font-serif text-3xl font-light text-[#111] sm:text-4xl [&_em]:text-[#A0704F] ${
+      className={`font-serif text-3xl font-light text-[#111] sm:text-4xl [&_em]:text-brand-accent ${
         isTopRightArrows ? "text-left" : "text-center"
       }`}
       dangerouslySetInnerHTML={{ __html: titleHtml }}

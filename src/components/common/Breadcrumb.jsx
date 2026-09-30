@@ -11,7 +11,7 @@ export default function Breadcrumb({ items }) {
     item?.url ? (
       <Link
         href={item.url || "#"}
-        className="text-[#1F1F1F] transition hover:text-[#A0704F]"
+        className="text-[#1F1F1F] transition hover:text-brand-accent"
       >
         {item.label}
       </Link>

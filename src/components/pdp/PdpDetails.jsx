@@ -10,6 +10,7 @@ import PdpConfigurator from "./PdpConfigurator";
 import PdpProductDetails from "./PdpProductDetails";
 import PdpInStockTable from "./PdpInStockTable";
 import PdpStickyBanner from "./PdpStickyBanner";
+import { brand } from "@/brands";
 import { buildSku, initialSelections } from "@/utils/buildSku";
 import { formatPrice } from "@/utils/formatPrice";
 
@@ -146,7 +147,7 @@ export default function PdpDetails({
       {/* Price */}
       {salePrice ? (
         <div ref={priceRef} className="flex items-baseline gap-3 mb-2">
-          <span className="text-xl font-semibold text-[#9C6D4B]">
+          <span className="text-xl font-semibold text-brand-pdp">
             {formatPrice(salePrice, currency)}
           </span>
           {onSale && (
@@ -154,17 +155,17 @@ export default function PdpDetails({
               {formatPrice(listPrice, currency)}
             </span>
           )}
-          {onSale && <span className="text-xs text-[#9C6D4B]">Sale Price</span>}
+          {onSale && <span className="text-xs text-brand-pdp">Sale Price</span>}
         </div>
       ) : (
         <div className="text-xs text-[#e72618]">
-          Please contact a member of our sales team regarding your combination. We would be delighted to help you. Our team can be contacted on 0800 1844 819.
+          Please contact a member of our sales team regarding your combination. We would be delighted to help you. Our team can be contacted on {brand.phone}.
         </div>
       )}
 
       {/* Promotion banner */}
       {promotion?.description && (
-        <div className="bg-[#9C6D4B] px-4 py-3 text-center text-white">
+        <div className="bg-brand-pdp px-4 py-3 text-center text-white">
           <p className="text-sm font-medium">{promotion.description}</p>
           <p className="text-[11px] underline">*T&amp;C&apos;s Apply</p>
         </div>
@@ -178,7 +179,7 @@ export default function PdpDetails({
           onClick={() => setActiveTab("customise")}
           className={`pb-2 ${
             activeTab === "customise"
-              ? "border-b-2 border-[#9C6D4B] font-semibold text-[#1F1F1F]"
+              ? "border-b-2 border-brand-pdp font-semibold text-[#1F1F1F]"
               : "text-[#9A8B78]"
           }`}
         >
@@ -189,7 +190,7 @@ export default function PdpDetails({
           onClick={() => setActiveTab("inStock")}
           className={`pb-2 ${
             activeTab === "inStock"
-              ? "border-b-2 border-[#9C6D4B] font-semibold text-[#1F1F1F]"
+              ? "border-b-2 border-brand-pdp font-semibold text-[#1F1F1F]"
               : "text-[#9A8B78]"
           }`}
         >
@@ -216,17 +217,17 @@ export default function PdpDetails({
               <span className="block text-sm font-semibold text-[#1F1F1F]">
                 Couldn&apos;t find the right stone?
               </span>
-              <span className="block text-xs text-[#9C6D4B] underline">
+              <span className="block text-xs text-brand-pdp underline">
                 Choose a specific diamond
               </span>
             </span>
-            <FiChevronDown className="text-[#9C7A58]" />
+            <FiChevronDown className="text-brand-muted" />
           </button>
 
           {/* Add to bag */}
           <button
             type="button"
-            className="w-full bg-[#9C6D4B] py-4 text-sm font-semibold uppercase text-white transition-colors hover:bg-[#835a3d]"
+            className="w-full bg-brand-pdp py-4 text-sm font-semibold uppercase text-white transition-colors hover:bg-brand-pdp-hover"
           >
             Add to Bag ({formatPrice(salePrice, currency)})
           </button>
@@ -254,11 +255,11 @@ export default function PdpDetails({
       {/* Delivery / policies */}
       <div className="space-y-2 pt-2 text-sm">
         <p className="flex items-center gap-2">
-          <LuTruck className="text-[#9C7A58]" />
+          <LuTruck className="text-brand-muted" />
           Estimated Delivery 2-3 working weeks.
         </p>
         <p className="flex items-center gap-2">
-          <RiShieldCheckLine className="text-[#9C7A58]" />
+          <RiShieldCheckLine className="text-brand-muted" />
           Shipping and Return Policies
         </p>
       </div>

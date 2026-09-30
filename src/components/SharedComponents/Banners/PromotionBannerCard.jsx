@@ -95,14 +95,14 @@ export default function PromotionBannerCard({ data }) {
                 px-5
                 md:py-4
                 py-3
-                bg-[#A5744A]
+                bg-brand-primary
                 text-white
                 text-center
                 font-medium
                 tracking-wide
                 transition-all
                 duration-300
-                hover:bg-[#8C643F]
+                hover:bg-brand-primary-hover
               "
             >
               {data.btnText}
@@ -116,7 +116,7 @@ export default function PromotionBannerCard({ data }) {
                 <Link
                   key={link?._uid ?? index}
                   href={link?.url || ""}
-                  className="inline-flex items-center gap-1 text-sm font-semibold uppercase tracking-wide text-[#A0704F] transition-colors hover:text-white"
+                  className="inline-flex items-center gap-1 text-sm font-semibold uppercase tracking-wide text-brand-accent transition-colors hover:text-white"
                 >
                   {link.label}
                   <FiChevronRight size={16} />

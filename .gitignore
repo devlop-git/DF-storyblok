@@ -13,8 +13,9 @@
 # testing
 /coverage
 
-# next.js
+# next.js (other brands build into .next-<brand>)
 /.next/
+/.next-*/
 /out/
 
 # production
@@ -33,6 +34,7 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 !.env.example
+!.env.austenblake.example
 
 # Storyblok backup asset files (the JSON is committed)
 /storyblok/backup/*/assets/

@@ -36,6 +36,7 @@ const countryCodes = {
   CZ: "cz",
   PT: "pt",
   AE: "ae",
+  CA: "ca",
 };
 
 export default countryCodes;

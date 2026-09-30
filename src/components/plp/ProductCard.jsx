@@ -6,6 +6,7 @@ import Image from "next/image";
 import { FaRegHeart } from "react-icons/fa";
 import DotIndicatorButton from "@/components/common/DotIndicatorButton";
 import { buildSkuFromFeatures } from "@/utils/buildSku";
+import { withCurrency } from "@/utils/formatPrice";
 
 export default function ProductCard({ product, filters }) {
   // Hooks must run before any early return (the Strapi version returned first).
@@ -41,14 +42,14 @@ export default function ProductCard({ product, filters }) {
         <div className="relative overflow-hidden">
           {/* Discount Badge */}
           {discount > 0 && (
-            <span className="absolute top-3 left-3 z-10 bg-[#A5744A] px-3 text-xs font-semibold text-white">
+            <span className="absolute top-3 left-3 z-10 bg-brand-primary px-3 text-xs font-semibold text-white">
               {discount}% OFF
             </span>
           )}
 
           {/* Wishlist */}
           <button className="absolute top-3 right-3 z-10">
-            <FaRegHeart size={22} className="text-[#9C7A58]" />
+            <FaRegHeart size={22} className="text-brand-muted" />
           </button>
 
           {/* Desktop Images */}
@@ -113,7 +114,7 @@ export default function ProductCard({ product, filters }) {
           <p className="text-[12px] font-normal leading-5 text-gray-800">
             From
             <span className="ml-1 whitespace-nowrap text-[13px] font-semibold text-black">
-              {product.priceFrom?.salePrice}€
+              {withCurrency(product.priceFrom?.salePrice, product.priceFrom?.currency)}
             </span>
           </p>
         </div>
@@ -138,7 +139,7 @@ export default function ProductCard({ product, filters }) {
               >
                 <div
                   className={`flex h-6 w-6 items-center justify-center rounded-full ${
-                    selected ? "border-2 border-[#9C6D4B]" : ""
+                    selected ? "border-2 border-brand-pdp" : ""
                   }`}
                 >
                   <span

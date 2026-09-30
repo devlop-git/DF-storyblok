@@ -12,7 +12,7 @@ export default function DotIndicatorButton({
         w-2.5
         rounded-full
         transition-all
-        ${active ? "bg-[#9C6D4B]" : "bg-[#9C6D4B]/40 hover:bg-[#9C6D4B]/70"}
+        ${active ? "bg-brand-pdp" : "bg-brand-pdp/40 hover:bg-brand-pdp/70"}
         ${className}
       `}
     />

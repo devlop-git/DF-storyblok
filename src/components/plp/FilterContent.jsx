@@ -21,7 +21,7 @@ export default function FilterContent({
   return (
     <div className={className}>
       <div className="mb-6 flex items-center justify-between">
-        <div className="flex items-center gap-2 font-medium text-[#8b6b49]">
+        <div className="flex items-center gap-2 font-medium text-brand-filter">
           <FiSliders />
           <span className="hidden lg:block">Filters</span>
           <span className=" lg:hidden">Filters & sort</span>
@@ -29,7 +29,7 @@ export default function FilterContent({
 
         <button
           onClick={clearAll}
-          className="text-xs hover:cursor-pointer hidden lg:block uppercase underline text-[#8b6b49]"
+          className="text-xs hover:cursor-pointer hidden lg:block uppercase underline text-brand-filter"
         >
           Clear All
         </button>

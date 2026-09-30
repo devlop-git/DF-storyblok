@@ -12,7 +12,7 @@ export default function PdpPage({ blok, pdp }) {
       {pdp ? (
         <PdpProduct pdp={pdp} />
       ) : (
-        <div className="mx-auto my-8 max-w-7xl border border-dashed border-[#d7b89c] p-10 text-center text-sm text-[#8b6b49]">
+        <div className="mx-auto my-8 max-w-7xl border border-dashed border-[#d7b89c] p-10 text-center text-sm text-brand-filter">
           Product: gallery and configurator from the Commerce API appear here on
           product pages (/design/&#123;slug&#125;/&#123;sku&#125;).
         </div>

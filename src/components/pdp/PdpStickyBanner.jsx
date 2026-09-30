@@ -1,5 +1,6 @@
 "use client";
 
+import { brand } from "@/brands";
 import { formatPrice } from "@/utils/formatPrice";
 import Link from "next/link";
 
@@ -57,14 +58,14 @@ export default function PdpStickyBanner({
 
             <span className="pt-1 text-[#9A8B78]">=</span>
 
-            <span className="bg-[#9C6D4B]/10 px-2 py-1 font-semibold text-[#1F1F1F]">
+            <span className="bg-brand-pdp/10 px-2 py-1 font-semibold text-[#1F1F1F]">
               {formatPrice(priceBeforeDiscount?.subtotal, currency)}
             </span>
           </div>
 
           <p className="hidden text-sm md:block">
             Best Price &amp; Quality Guaranteed.{" "}
-            <Link href="https://www.diamondsfactory.de/#priceexplaincontent" className="underline">
+            <Link href={brand.links.priceExplainer} className="underline">
               Find out More
             </Link>
           </p>
@@ -72,14 +73,14 @@ export default function PdpStickyBanner({
 
         {/* Sale price -- stacked block on mobile, inline label from tablet (md) up */}
         <div className="text-center md:hidden">
-          <div className="text-lg font-semibold text-[#9C6D4B]">
+          <div className="text-lg font-semibold text-brand-pdp">
             {formatPrice(salePrice, currency)}
           </div>
-          <div className="text-sm text-[#9C6D4B]">Sale Price</div>
+          <div className="text-sm text-brand-pdp">Sale Price</div>
         </div>
         <div className="hidden text-lg font-['Lucida_Bright',sans-serif] md:block">
-          <span className="text-[#9C6D4B]">Sale Price: </span>
-          <span className="font-semibold text-[#9C6D4B]">
+          <span className="text-brand-pdp">Sale Price: </span>
+          <span className="font-semibold text-brand-pdp">
             {formatPrice(salePrice, currency)}
           </span>
         </div>
@@ -88,13 +89,13 @@ export default function PdpStickyBanner({
         <div className="hidden items-center gap-3 md:flex">
           <button
             type="button"
-            className="whitespace-nowrap bg-[#9C6D4B] px-4 py-4 text-sm font-semibold uppercase text-white transition-colors hover:bg-[#835a3d] lg:px-6"
+            className="whitespace-nowrap bg-brand-pdp px-4 py-4 text-sm font-semibold uppercase text-white transition-colors hover:bg-brand-pdp-hover lg:px-6"
           >
             Add to Bag ({formatPrice(salePrice, currency)})
           </button>
           <button
             type="button"
-            className="whitespace-nowrap border border-[#9C6D4B] px-6 py-3 text-sm font-semibold text-[#9C6D4B] transition-colors hover:bg-[#9C6D4B] hover:text-white"
+            className="whitespace-nowrap border border-brand-pdp px-6 py-3 text-sm font-semibold text-brand-pdp transition-colors hover:bg-brand-pdp hover:text-white"
           >
             Request An Appointment
           </button>

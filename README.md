@@ -53,6 +53,32 @@ npm run migrate:schema -- --push    # creates/updates the blocks in the space (s
 
 `--push` needs `STORYBLOK_SPACE_ID`, `STORYBLOK_MANAGEMENT_TOKEN` and `STORYBLOK_REGION` in `.env.local`.
 
+## Brands (Diamonds Factory, Austen & Blake)
+
+One codebase, one deployment per brand. `NEXT_PUBLIC_BRAND` picks the brand:
+
+- `src/brands/<brand>.js` — name, logo text, phone, links (ring size guide, price
+  explainer), announcement bar, markets/languages, currency symbol, image hosts.
+- `src/app/globals.css` — brand colours as CSS variables (`:root` = Diamonds Factory,
+  `[data-brand="austenblake"]` = Austen & Blake). Components use them as Tailwind
+  colours: `bg-brand-primary`, `text-brand-accent`, `border-brand-pdp`, …
+- `src/brands/overrides.js` — replace a single Storyblok block for one brand; everything
+  else stays shared.
+- Each brand has its own Storyblok space (own content, editors, Visual Editor preview URL).
+
+```bash
+npm run dev:https        # Diamonds Factory, https://localhost:3000 (.env.local)
+npm run dev:ab           # Austen & Blake,  https://localhost:3001 (.env.austenblake)
+npm run build:ab         # builds into .next-austenblake
+npm run migrate:schema:ab -- --push   # same blocks into the Austen & Blake space
+```
+
+Copy `.env.austenblake.example` to `.env.austenblake` and fill in **every** key (anything
+missing falls back to the Diamonds Factory `.env.local`). In the Austen & Blake Storyblok
+space, set the Visual Editor preview URL to `https://localhost:3001/`.
+
+Austen & Blake's colours are placeholders until the real brand palette is provided.
+
 ## Backups
 
 Content lives on Storyblok's servers (no local database like Strapi's `.tmp/data.db`).

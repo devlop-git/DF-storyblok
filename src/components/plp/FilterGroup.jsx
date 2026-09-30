@@ -77,12 +77,12 @@ export default function FilterGroup({
         className="flex justify-between items-center w-full"
       >
         <div className="flex items-center gap-2">
-          <span className="uppercase tracking-wide text-xs font-medium lg:font-semibold text-[#8b6b49]">
+          <span className="uppercase tracking-wide text-xs font-medium lg:font-semibold text-brand-filter">
             {filter.displayName}
           </span>
           {filter.selectionType !== "range" &&
             !!selectedFilters[filter.featureId]?.length && (
-              <span className="bg-[#f1e3d2] text-[#8b6b49] text-[10px] px-2 rounded">
+              <span className="bg-[#f1e3d2] text-brand-filter text-[10px] px-2 rounded">
                 {selectedFilters[filter.featureId].length}
               </span>
             )}
@@ -125,7 +125,7 @@ export default function FilterGroup({
                     style={{
                       background: getTrackBackground({
                         values,
-                        colors: ["#ddd", "#8b6b49", "#ddd"],
+                        colors: ["#ddd", "var(--brand-filter)", "#ddd"],
                         min: filter.range.min,
                         max: filter.range.max,
                       }),
@@ -141,7 +141,7 @@ export default function FilterGroup({
                     <div
                       key={key}
                       {...restProps}
-                      className="h-5 w-5 rounded-full bg-[#8b6b49] border-2 border-white shadow"
+                      className="h-5 w-5 rounded-full bg-brand-filter border-2 border-white shadow"
                     />
                   );
                 }}
@@ -160,7 +160,7 @@ export default function FilterGroup({
                   <button
                     key={option.valueCode}
                     onClick={() => handleSelection(option)}
-                    className="flex items-center gap-3 w-full hover:text-[#8b6b49]"
+                    className="flex items-center gap-3 w-full hover:text-brand-filter"
                   >
                     {filter.selectionType === "single" ? (
                       checked ? (
@@ -173,7 +173,7 @@ export default function FilterGroup({
                     ) : (
                       <FiSquare size={18} />
                     )}
-                    {Icon && <Icon size={18} className="text-[#8b6b49]" />}
+                    {Icon && <Icon size={18} className="text-brand-filter" />}
                     <span className="text-sm">{option.displayName}</span>
                   </button>
                 );

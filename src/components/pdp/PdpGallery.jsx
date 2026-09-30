@@ -82,7 +82,7 @@ export default function PdpGallery({ galleryGroups = [], caption }) {
     <div className="flex gap-4">
       {/* Left: vertical group thumbnails */}
       <div className="hidden w-[70px] shrink-0 flex-col items-center gap-2 lg:flex">
-        <FiChevronUp className="text-[#9C7A58]" />
+        <FiChevronUp className="text-brand-muted" />
         <div className="flex flex-col gap-2">
           {groups.map((group, index) => (
             <button
@@ -92,7 +92,7 @@ export default function PdpGallery({ galleryGroups = [], caption }) {
               aria-label={`View group ${index + 1}`}
               className={`relative h-[58px] w-[58px] overflow-hidden border transition-colors ${
                 activeGroup === index
-                  ? "border-[#9C6D4B]"
+                  ? "border-brand-pdp"
                   : "border-transparent hover:border-[#D8C7B4]"
               }`}
             >
@@ -103,7 +103,7 @@ export default function PdpGallery({ galleryGroups = [], caption }) {
             </button>
           ))}
         </div>
-        <FiChevronDown className="text-[#9C7A58]" />
+        <FiChevronDown className="text-brand-muted" />
       </div>
 
       {/* Center: main viewer + bottom strip */}
@@ -113,7 +113,7 @@ export default function PdpGallery({ galleryGroups = [], caption }) {
             type="button"
             onClick={() => step(-1)}
             aria-label="Previous"
-            className="absolute left-2 z-10 flex h-8 w-8 items-center justify-center rounded-full text-[#9C7A58] hover:bg-[#F5EFE7]"
+            className="absolute left-2 z-10 flex h-8 w-8 items-center justify-center rounded-full text-brand-muted hover:bg-[#F5EFE7]"
           >
             <FiChevronLeft size={22} />
           </button>
@@ -132,7 +132,7 @@ export default function PdpGallery({ galleryGroups = [], caption }) {
             type="button"
             onClick={() => step(1)}
             aria-label="Next"
-            className="absolute right-2 z-10 flex h-8 w-8 items-center justify-center rounded-full text-[#9C7A58] hover:bg-[#F5EFE7]"
+            className="absolute right-2 z-10 flex h-8 w-8 items-center justify-center rounded-full text-brand-muted hover:bg-[#F5EFE7]"
           >
             <FiChevronRight size={22} />
           </button>
@@ -143,7 +143,7 @@ export default function PdpGallery({ galleryGroups = [], caption }) {
           {caption && (
             <p className="text-center text-xs text-gray-500">{caption}</p>
           )}
-          <div className="flex items-center gap-6 text-[#9C7A58]">
+          <div className="flex items-center gap-6 text-brand-muted">
             <button type="button" aria-label="Add to wishlist">
               <FaRegHeart size={18} />
             </button>
@@ -163,7 +163,7 @@ export default function PdpGallery({ galleryGroups = [], caption }) {
               aria-label={`View item ${index + 1}`}
               className={`relative h-[64px] w-[64px] overflow-hidden border transition-colors ${
                 activeItem === index
-                  ? "border-[#9C6D4B]"
+                  ? "border-brand-pdp"
                   : "border-[#E8DDCF] hover:border-[#D8C7B4]"
               }`}
             >

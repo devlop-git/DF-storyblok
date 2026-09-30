@@ -51,7 +51,7 @@ function Row({ product, ringSizeValues, currency }) {
 
         <button
           type="button"
-          className="bg-[#9C6D4B] px-5 py-2 text-xs font-semibold uppercase text-white hover:bg-[#835a3d]"
+          className="bg-brand-pdp px-5 py-2 text-xs font-semibold uppercase text-white hover:bg-brand-pdp-hover"
         >
           Buy
         </button>
@@ -60,7 +60,7 @@ function Row({ product, ringSizeValues, currency }) {
           type="button"
           onClick={() => setOpen((prev) => !prev)}
           aria-label={open ? "Hide details" : "Show details"}
-          className="flex items-center justify-center text-[#9C7A58]"
+          className="flex items-center justify-center text-brand-muted"
         >
           {open ? <FiChevronUp /> : <FiChevronDown />}
         </button>
@@ -69,27 +69,27 @@ function Row({ product, ringSizeValues, currency }) {
       {open && (
         <div className="grid grid-cols-3 gap-x-6 gap-y-2 border-t border-[#F0E9DF] py-3 text-sm">
           <p>
-            <span className="text-[#9C6D4B]">Stone Type: </span>
+            <span className="text-brand-pdp">Stone Type: </span>
             {product.stoneType}
           </p>
           <p>
-            <span className="text-[#9C6D4B]">Metal: </span>
+            <span className="text-brand-pdp">Metal: </span>
             {product.metal}
           </p>
           <p>
-            <span className="text-[#9C6D4B]">Clarity: </span>
+            <span className="text-brand-pdp">Clarity: </span>
             {product.clarity}
           </p>
           <p>
-            <span className="text-[#9C6D4B]">Colour: </span>
+            <span className="text-brand-pdp">Colour: </span>
             {product.colour}
           </p>
           <p>
-            <span className="text-[#9C6D4B]">Tag No: </span>
+            <span className="text-brand-pdp">Tag No: </span>
             {product.tagNo}
           </p>
           <p>
-            <span className="text-[#9C6D4B]">Design Number: </span>
+            <span className="text-brand-pdp">Design Number: </span>
             {product.designNumber}
           </p>
         </div>

@@ -1,6 +1,7 @@
 import { FaGift as Gift } from "react-icons/fa6";
 import { HiOutlineSparkles as Sparkles } from "react-icons/hi2";
 import { FaLock as Lock } from "react-icons/fa";
+import { brand } from "@/brands";
 
 export default function NewsletterSignup({ data }) {
   const benefits = (data.description ?? "")
@@ -25,7 +26,7 @@ export default function NewsletterSignup({ data }) {
 
                 return (
                   <div key={index} className="flex items-start gap-4">
-                    <Icon size={18} className="text-[#A5744A] mt-1" />
+                    <Icon size={18} className="text-brand-primary mt-1" />
 
                     <p className="text-[17px] text-[#333] leading-7">{item}</p>
                   </div>
@@ -42,18 +43,18 @@ export default function NewsletterSignup({ data }) {
 
                 <input
                   type="text"
-                  className="w-full border-0 border-b border-[#A5744A] bg-transparent focus:outline-none focus:border-black "
+                  className="w-full border-0 border-b border-brand-primary bg-transparent focus:outline-none focus:border-black "
                 />
               </div>
 
               <div>
                 <label className="block text-sm text-gray-700 mb-2">
-                  Geburtstag
+                  {brand.copy.newsletterBirthday}
                 </label>
 
                 <input
                   type="date"
-                  className="w-full border-0 border-b border-[#A5744A] bg-transparent focus:outline-none focus:border-black pb-3"
+                  className="w-full border-0 border-b border-brand-primary bg-transparent focus:outline-none focus:border-black pb-3"
                 />
               </div>
 
@@ -64,13 +65,13 @@ export default function NewsletterSignup({ data }) {
 
                 <input
                   type="email"
-                  className="w-full border-0 border-b border-[#A5744A] bg-transparent focus:outline-none focus:border-black "
+                  className="w-full border-0 border-b border-brand-primary bg-transparent focus:outline-none focus:border-black "
                 />
               </div>
 
               <button
                 type="submit"
-                className="bg-[#A5744A] w-full lg:w-auto text-white px-8 py-4 font-medium hover:bg-[#8D6642] transition-colors"
+                className="bg-brand-primary w-full lg:w-auto text-white px-8 py-4 font-medium hover:bg-brand-primary-hover transition-colors"
               >
                 {data.btnLabel}
               </button>

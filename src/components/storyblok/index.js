@@ -16,6 +16,8 @@ import HeroCarousel from "@/components/SharedComponents/Sections/HeroCarousel";
 import ImageTextSection from "@/components/SharedComponents/Sections/ImageTextSection";
 import ReviewsSection from "@/components/SharedComponents/SocialProof/ReviewsSection";
 
+import { brandComponents } from "@/brands/overrides";
+
 import HomePage from "./HomePage";
 import NodeApiList from "./NodeApiList";
 import PdpPage from "./PdpPage";
@@ -57,4 +59,7 @@ export const components = {
 
   // Node API example (not created in Storyblok yet)
   node_api_list: NodeApiList,
+
+  // Brand-specific versions of any block above (src/brands/overrides.js).
+  ...brandComponents,
 };

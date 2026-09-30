@@ -1,3 +1,5 @@
+import { brand } from "@/brands";
+
 const QUERY_TYPES = [
   "General Enquiry",
   "Order Support",
@@ -7,7 +9,7 @@ const QUERY_TYPES = [
 ];
 
 const inputClass =
-  "w-full border-0 border-b border-[#A5744A] bg-transparent focus:outline-none focus:border-black py-2";
+  "w-full border-0 border-b border-brand-primary bg-transparent focus:outline-none focus:border-black py-2";
 
 export default function ContactUsForm({ data }) {
   return (
@@ -79,7 +81,7 @@ export default function ContactUsForm({ data }) {
               rows={5}
               required
               placeholder="Type Here"
-              className="w-full border border-[#A5744A] bg-transparent p-3 focus:outline-none focus:border-black"
+              className="w-full border border-brand-primary bg-transparent p-3 focus:outline-none focus:border-black"
             />
           </div>
 
@@ -95,7 +97,7 @@ export default function ContactUsForm({ data }) {
               className="mt-1"
             />
             <label htmlFor="contact-us-consent" className="text-sm text-gray-700">
-              I give consent to be contacted by Diamonds Factory about my
+              I give consent to be contacted by {brand.name} about my
               enquiry via phone or email.
             </label>
           </div>
@@ -103,7 +105,7 @@ export default function ContactUsForm({ data }) {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="bg-[#A5744A] text-white px-10 py-3 font-medium hover:bg-[#8D6642] transition-colors"
+              className="bg-brand-primary text-white px-10 py-3 font-medium hover:bg-brand-primary-hover transition-colors"
             >
               {data?.btnLabel || "Submit"}
             </button>

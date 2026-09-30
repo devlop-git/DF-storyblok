@@ -60,10 +60,10 @@ export default function FilterSidebar({
             count={1}
             onClick={() => setIsOpen(true)}
             icon={HiOutlineAdjustmentsHorizontal}
-            className="h-12 w-full bg-[#A0704F] text-white hover:bg-[#8d6144]"
+            className="h-12 w-full bg-brand-accent text-white hover:bg-brand-accent-hover"
             iconClassName="h-7 w-7"
             textClassName="text-base font-medium"
-            badgeClassName="flex h-5 w-5 items-center justify-center rounded-md bg-white text-[12px] font-semibold text-[#A0704F]"
+            badgeClassName="flex h-5 w-5 items-center justify-center rounded-md bg-white text-[12px] font-semibold text-brand-accent"
           />
         </div>
 
@@ -74,17 +74,17 @@ export default function FilterSidebar({
             <div className="flex gap-3">
               <button
                 onClick={clearAll}
-                className="flex-1 border border-[#976649] py-3 text-lg font-medium "
+                className="flex-1 border border-brand-filter-strong py-3 text-lg font-medium "
               >
                 Clear
               </button>
 
               <button
                 onClick={() => setIsOpen(false)}
-                className="flex flex-1 items-center justify-center gap-2 bg-[#A5744A]  text-base font-medium text-white"
+                className="flex flex-1 items-center justify-center gap-2 bg-brand-primary  text-base font-medium text-white"
               >
                 Apply Filters
-                <span className="flex h-4 w-4 items-center justify-center rounded-md bg-white text-xs font-semibold text-[#A5744A]">
+                <span className="flex h-4 w-4 items-center justify-center rounded-md bg-white text-xs font-semibold text-brand-primary">
                   1
                 </span>
               </button>

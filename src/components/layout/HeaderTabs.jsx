@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { brand } from "@/brands";
 import LanguageDropdown from "./LanguageDropdown";
 import { HiOutlineShoppingBag, HiOutlineUserCircle } from "react-icons/hi2";
 import { IoIosSearch, IoMdHeartEmpty } from "react-icons/io";
@@ -13,16 +14,16 @@ const HeaderTabs = ({ logo, languages, locale }) => {
       <div className=" gap-x-1 mx-auto flex lg:grid grid-cols-3 h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Left */}
         <div className="flex items-center gap-x-1 md:gap-x-2 lg:gap-x-6">
-          <button className="hover:text-[#A5744A] transition">
+          <button className="hover:text-brand-primary transition">
             <FiPhoneCall className="text-lg lg:text-2xl" />
           </button>
 
-          <button className="hover:text-[#A5744A] transition">
+          <button className="hover:text-brand-primary transition">
             <IoLocationOutline className="text-lg lg:text-2xl" />
           </button>
 
           {/* Hide calendar on mobile */}
-          <button className="hidden lg:block hover:text-[#A5744A] transition">
+          <button className="hidden lg:block hover:text-brand-primary transition">
             <IoCalendarClearOutline className="text-lg md:text-2xl" />
           </button>
         </div>
@@ -41,7 +42,7 @@ const HeaderTabs = ({ logo, languages, locale }) => {
             </div>
           ) : (
             languages && (
-              <span className="font-serif text-[14px] tracking-wide">DIAMONDS FACTORY</span>
+              <span className="font-serif text-[14px] tracking-wide">{brand.logoText}</span>
             )
           )}
         </Link>
@@ -50,20 +51,20 @@ const HeaderTabs = ({ logo, languages, locale }) => {
 
         <div className="flex lg:justify-end items-center gap-x-4 ">
           <LanguageDropdown languages={languages} locale={locale} />
-          <button className="hover:text-[#A5744A] hidden lg:block">
+          <button className="hover:text-brand-primary hidden lg:block">
             <IoIosSearch className="text-md md:text-2xl" />
           </button>
 
-          <button className="hover:text-[#A5744A]  hidden lg:block">
+          <button className="hover:text-brand-primary  hidden lg:block">
             <HiOutlineUserCircle className="text-lg md:text-2xl" />
           </button>
 
           {/* Hide wishlist on very small screens */}
-          <button className="hidden lg:block hover:text-[#A5744A]">
+          <button className="hidden lg:block hover:text-brand-primary">
             <IoMdHeartEmpty className="text-lg md:text-2xl" />
           </button>
 
-          <button className="hover:text-[#A5744A]">
+          <button className="hover:text-brand-primary">
             <HiOutlineShoppingBag className="text-lg lg:text-2xl" />
           </button>
         </div>
