@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@import "@df/theme/theme.css";
+
+/* Austen & Blake brand colours -- PLACEHOLDER palette (charcoal + muted gold)
+   until the real brand colours are provided. */
+:root {
+  --brand-primary: #1f2a37;
+  --brand-primary-hover: #111827;
+  --brand-accent: #b08d57;
+  --brand-accent-hover: #957446;
+  --brand-pdp: #1f2a37;
+  --brand-pdp-hover: #111827;
+  --brand-muted: #8a7a63;
+  --brand-filter: #6b5b45;
+  --brand-filter-strong: #5a4c39;
+}

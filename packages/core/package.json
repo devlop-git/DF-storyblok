@@ -1,0 +1,16 @@
+{
+  "name": "@df/core",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Shared non-UI code: Storyblok client, Commerce APIs, market/locale, helpers. Brand settings come from each app's @brand/config.",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@storyblok/react": "^7.3.1"
+  },
+  "peerDependencies": {
+    "next": "*",
+    "react": "*"
+  }
+}

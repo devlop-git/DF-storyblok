@@ -1,0 +1,140 @@
+{
+  "name": "Plp Page",
+  "parent_id": null,
+  "group_id": "8335597e-5f54-4564-8c92-552dd4bae47b",
+  "alternates": [],
+  "created_at": "2026-09-28T12:37:08.284Z",
+  "deleted_at": null,
+  "sort_by_date": null,
+  "tag_list": [],
+  "updated_at": "2026-09-30T06:21:57.281Z",
+  "published_at": "2026-09-30T06:21:57.267Z",
+  "id": 224909018278349,
+  "uuid": "9b00e979-36b0-49e7-9681-dc7ee56eb7b4",
+  "is_folder": false,
+  "content": {
+    "_uid": "f26c43e3-1a75-4989-b9c7-ec35a4e3e0a1",
+    "slug": "plp-pages",
+    "title": "Plp Page",
+    "markets": [],
+    "component": "plp_page",
+    "plp_section": [
+      {
+        "_uid": "69cddd68-fbd3-45a7-92b0-b4c42192b232",
+        "component": "product_listing",
+        "gridConfig": [
+          {
+            "_uid": "12f277cb-e53a-4f1f-9ecb-ef583194efca",
+            "component": "product_grid_cofiguration",
+            "tabColumns": "3",
+            "mobileColumns": "2",
+            "desktopColumns": "3"
+          }
+        ],
+        "filterConfig": [
+          {
+            "_uid": "e7949e65-26db-46b5-a1d2-4cf632b4ad4e",
+            "order": "[\n  \"Style\",\n  \"Metal\",\n  \"Stone\"\n]",
+            "width": "280",
+            "sticky": false,
+            "position": "right",
+            "component": "filter_configuration"
+          }
+        ],
+        "toolbarConfig": [
+          {
+            "_uid": "9fa0ded2-32a6-4070-b724-5268c9a48c18",
+            "showSort": true,
+            "component": "toolbar_configuration",
+            "showFilterButton": true,
+            "showProductCount": true
+          }
+        ]
+      }
+    ]
+  },
+  "published": true,
+  "slug": "plp-pages",
+  "path": null,
+  "full_slug": "plp-pages",
+  "default_root": null,
+  "disble_fe_editor": false,
+  "disable_fe_editor": false,
+  "parent": null,
+  "is_startpage": false,
+  "unpublished_changes": false,
+  "meta_data": null,
+  "imported_at": null,
+  "preview_token": {
+    "token": "27410f93c36e75d97573f193ac6ab2f3850f6c56",
+    "timestamp": "1790848356"
+  },
+  "pinned": false,
+  "breadcrumbs": [],
+  "publish_at": null,
+  "expire_at": null,
+  "first_published_at": "2026-09-28T12:39:30.724Z",
+  "last_author": {
+    "id": 224818409670620,
+    "userid": "devanshee.rupabheda@navgrahaa.com",
+    "friendly_name": "Devanshi T"
+  },
+  "last_author_id": 224818409670620,
+  "user_ids": [],
+  "space_role_ids": [],
+  "translated_slugs": [],
+  "localized_paths": [
+    {
+      "path": "plp-pages",
+      "name": null,
+      "lang": "en",
+      "published": true
+    },
+    {
+      "path": "plp-pages",
+      "name": null,
+      "lang": "de",
+      "published": true
+    },
+    {
+      "path": "plp-pages",
+      "name": null,
+      "lang": "fr",
+      "published": false
+    }
+  ],
+  "position": -40,
+  "translated_stories": [
+    {
+      "id": 224909676825265,
+      "story_id": 224909018278349,
+      "space_id": 295526440790014,
+      "first_published_at": "2026-09-28T12:39:49.065Z",
+      "published_at": "2026-09-28T12:39:53.753Z",
+      "unpublished_changes": true,
+      "lang": "de",
+      "taxonomy_terms": []
+    },
+    {
+      "id": 224909696060082,
+      "story_id": 224909018278349,
+      "space_id": 295526440790014,
+      "first_published_at": "2026-09-28T12:39:53.761Z",
+      "published_at": "2026-09-28T12:39:53.761Z",
+      "unpublished_changes": true,
+      "lang": "en",
+      "taxonomy_terms": []
+    }
+  ],
+  "can_not_view": false,
+  "is_scheduled": null,
+  "scheduled_dates": null,
+  "ideas": [],
+  "current_version_id": 225524601780551,
+  "variant_type": null,
+  "taxonomy_terms": [],
+  "experiment_ids": [],
+  "stage": null,
+  "stages": [],
+  "favourite_for_user_ids": []
+}

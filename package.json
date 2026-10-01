@@ -2,37 +2,32 @@
   "name": "df-storyblok-poc",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "npm@10.9.3",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "next dev",
-    "dev:https": "next dev --experimental-https --experimental-https-key certificates/localhost-key.pem --experimental-https-cert certificates/localhost.pem",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint",
-    "migrate:schema": "node --env-file-if-exists=.env.local scripts/migrate-strapi-schema.mjs",
-    "backup:storyblok": "node --env-file-if-exists=.env.local scripts/backup-storyblok.mjs",
-    "dev:ab": "node scripts/with-env.mjs .env.austenblake dev -p 3001 --experimental-https --experimental-https-key certificates/localhost-key.pem --experimental-https-cert certificates/localhost.pem",
-    "build:ab": "node scripts/with-env.mjs .env.austenblake build",
-    "start:ab": "node scripts/with-env.mjs .env.austenblake start -p 3001",
-    "migrate:schema:ab": "node --env-file=.env.austenblake scripts/migrate-strapi-schema.mjs",
-    "backup:storyblok:ab": "node --env-file=.env.austenblake scripts/backup-storyblok.mjs"
-  },
-  "dependencies": {
-    "@storyblok/react": "^7.3.1",
-    "clsx": "^2.1.1",
-    "flag-icons": "^7.5.0",
-    "js-cookie": "^3.0.8",
-    "next": "16.3.6",
-    "react": "19.2.8",
-    "react-dom": "19.2.8",
-    "react-icons": "^5.7.0",
-    "react-loader-spinner": "^8.0.2",
-    "react-range": "^1.10.0",
-    "swiper": "^14.2.0"
+    "dev:df": "turbo run dev --filter=diamondsfactory",
+    "dev:ab": "turbo run dev --filter=austenblake",
+    "dev:df:http": "turbo run dev:http --filter=diamondsfactory",
+    "dev:ab:http": "turbo run dev:http --filter=austenblake",
+    "build": "turbo run build",
+    "build:df": "turbo run build --filter=diamondsfactory",
+    "build:ab": "turbo run build --filter=austenblake",
+    "start:df": "npm run start -w diamondsfactory",
+    "start:ab": "npm run start -w austenblake",
+    "lint": "turbo run lint",
+    "migrate:schema:df": "node --env-file=apps/diamondsfactory/.env.local tools/storyblok/migrate-strapi-schema.mjs",
+    "migrate:schema:ab": "node --env-file=apps/austenblake/.env.local tools/storyblok/migrate-strapi-schema.mjs",
+    "backup:df": "node --env-file=apps/diamondsfactory/.env.local tools/storyblok/backup-storyblok.mjs diamondsfactory",
+    "backup:ab": "node --env-file=apps/austenblake/.env.local tools/storyblok/backup-storyblok.mjs austenblake"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "16.3.6",
-    "tailwindcss": "^4"
+    "tailwindcss": "^4",
+    "turbo": "^2.11.6"
   }
 }

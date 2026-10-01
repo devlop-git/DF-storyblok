@@ -1,0 +1,6 @@
+{
+  "name": "@df/theme",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Shared Tailwind theme (brand colour tokens) and base styles"
+}

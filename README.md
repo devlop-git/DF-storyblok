@@ -1,33 +1,87 @@
 # df-storyblok-poc
 
-Next.js frontend for Storyblok (the equivalent of the `frontend/` folder in the Strapi project).
+Monorepo for the Storyblok frontends of our jewellery brands (Diamonds Factory, Austen & Blake).
 Storyblok is hosted, so there is no CMS server to run — pages and blocks are managed at
-https://app.storyblok.com. Pages also pull data from our Node API.
+https://app.storyblok.com, one space per brand. Product data comes from the Commerce (Node) APIs.
 
 ```
-Storyblok (hosted CMS)  ──content──▶  this app (Next.js)  ◀──data──  Node API
+Storyblok space (per brand) ──content──▶ apps/<brand> (Next.js) ◀──data── Commerce APIs
 ```
+
+## Layout
+
+```
+apps/
+  diamondsfactory/   Next.js app, https://localhost:3000
+  austenblake/       Next.js app, https://localhost:3001
+    brand/config.js     name, logo text, phone, links, announcement bar, markets, currency, image hosts
+    brand/overrides.js  brand-only Storyblok blocks (merged over the shared registry)
+    src/app/            routes (thin files that use the shared routes) + globals.css (brand colours)
+    src/components/     brand-only components
+    .env.local          this brand's keys (see .env.example)
+packages/
+  ui/      @df/ui     shared components, Storyblok block registry + page types, shared routes
+  core/    @df/core   Storyblok client, Commerce APIs, market/locale, helpers (buildSku, formatPrice, …)
+  theme/   @df/theme  Tailwind brand colour tokens (bg-brand-primary, …) + base styles
+tools/storyblok/      Strapi → Storyblok schema migration, space backup, block JSON
+```
+
+Shared code reads the brand with `import { brand } from "@brand/config"`; each app points
+`@brand/*` at its own `brand/` folder (`next.config.mjs` → `turbopack.resolveAlias`), so every
+build contains only its own brand.
 
 ## Getting started
 
-1. Copy `.env.example` to `.env.local` and fill in:
-   - `STORYBLOK_DELIVERY_API_TOKEN` — Storyblok **Preview** token (Settings → Access Tokens)
-   - `NODE_API_URL` (and `NODE_API_KEY` if needed)
-2. `npm install`
-3. `npm run dev:https` and open https://localhost:3000
-4. In Storyblok, set Settings → Visual Editor → preview URL to `https://localhost:3000/`.
+1. `npm install` (once, at the root — links the workspaces)
+2. Copy `apps/<brand>/.env.example` to `apps/<brand>/.env.local` and fill in
+   (Storyblok **Preview** token, space ID, management token, region, Commerce API URLs).
+3. Run a brand:
 
-## How it works
+```bash
+npm run dev:df          # Diamonds Factory  https://localhost:3000
+npm run dev:ab          # Austen & Blake    https://localhost:3001
+npm run dev:df:http     # same over plain http (no Visual Editor)
+```
 
-- **Pages**: every story is served at its slug — `home` → `/`, `about` → `/about`.
-  See `src/app/page.js` and `src/app/[...slug]/page.js`.
-- **Blocks**: each block in the Storyblok Block Library maps to a component in
-  `src/components/storyblok/`, registered by technical name in `src/components/storyblok/index.js`.
-  To add a block: create it in the UI → add a component → register it.
-- **Node API**: the `node_api_list` block (fields `title`, `endpoint`, `limit`) fetches from the
-  Node API on the server via `src/lib/nodeApi.js`. Editors place it on any page.
-- **Content version**: draft in development, published in production
-  (override with `STORYBLOK_VERSION`). Published pages refresh every 60 seconds.
+4. In each Storyblok space, set Settings → Visual Editor → preview URL to that app's https URL.
+
+## Build & deploy
+
+```bash
+npm run build           # both apps (Turborepo skips apps whose inputs didn't change)
+npm run build:df        # only Diamonds Factory  → apps/diamondsfactory/.next
+npm run build:ab        # only Austen & Blake    → apps/austenblake/.next
+npm run start:df        # / start:ab — run a production build
+npm run lint            # all apps and packages
+```
+
+Deploy each app separately (e.g. one hosting project per brand pointing at `apps/<brand>`,
+with that brand's environment variables). A change in `packages/` affects every brand —
+build and check all of them; a change in `apps/<brand>` only affects that brand.
+
+## Where code goes
+
+| Change | Put it in |
+| --- | --- |
+| Component used by all brands | `packages/ui/…` |
+| Component for one brand only | `apps/<brand>/src/components/` (+ register it in `apps/<brand>/brand/overrides.js` if it's a Storyblok block) |
+| Text, links, phone, markets for one brand | `apps/<brand>/brand/config.js` |
+| Colours for one brand | `apps/<brand>/src/app/globals.css` (`:root { --brand-*: … }`) |
+| API calls, helpers | `packages/core/…` |
+| A page only one brand has | `apps/<brand>/src/app/<route>/page.js` |
+
+**Adding a brand:** copy `apps/austenblake` to `apps/<new-brand>`, change its `package.json`
+name and port, `brand/config.js`, colours in `globals.css` and `.env.local`, then add
+`dev:<x>` / `build:<x>` scripts in the root `package.json`.
+
+## How pages work
+
+- `/` shows the HomePage story for the site's market (`NEXT_PUBLIC_MARKET`).
+- Every other story is served at its slug: `customer-care/valuations` → `/customer-care/valuations`.
+- `/{category}/{subCategory}` = PLP (products from the Commerce API, layout from the PLP Page story).
+- `/design/{slug}/{sku}` = PDP (product from the Commerce API, sections from the PDP Page story).
+- Blocks map to components by technical name in `packages/ui/storyblok/index.js`.
+- Draft content in development, published in production (override with `STORYBLOK_VERSION`).
 
 ## Strapi → Storyblok terms
 
@@ -41,67 +95,28 @@ Storyblok (hosted CMS)  ──content──▶  this app (Next.js)  ◀──dat
 
 ## Migrating models from Strapi
 
-`scripts/migrate-strapi-schema.mjs` reads the Strapi schema files (`cms/src/api/**/schema.json` and
-`cms/src/components/**`) and converts them to Storyblok blocks:
-collection/single types → content type blocks, components → nestable blocks (one folder per category),
-dynamic zones → Blocks fields limited to the same components.
+`tools/storyblok/migrate-strapi-schema.mjs` converts the Strapi schema files into Storyblok blocks
+(collection/single types → content types, components → nestable blocks, dynamic zones → Blocks fields).
 
 ```bash
-npm run migrate:schema              # dry run: writes storyblok/components/*.json and lists items to review
-npm run migrate:schema -- --push    # creates/updates the blocks in the space (safe to re-run)
+npm run migrate:schema:df              # dry run: writes tools/storyblok/components/*.json
+npm run migrate:schema:df -- --push    # create/update blocks in the DF space (safe to re-run)
+npm run migrate:schema:ab -- --push    # same blocks into the Austen & Blake space
 ```
 
-`--push` needs `STORYBLOK_SPACE_ID`, `STORYBLOK_MANAGEMENT_TOKEN` and `STORYBLOK_REGION` in `.env.local`.
-
-## Brands (Diamonds Factory, Austen & Blake)
-
-One codebase, one deployment per brand. `NEXT_PUBLIC_BRAND` picks the brand:
-
-- `src/brands/<brand>.js` — name, logo text, phone, links (ring size guide, price
-  explainer), announcement bar, markets/languages, currency symbol, image hosts.
-- `src/app/globals.css` — brand colours as CSS variables (`:root` = Diamonds Factory,
-  `[data-brand="austenblake"]` = Austen & Blake). Components use them as Tailwind
-  colours: `bg-brand-primary`, `text-brand-accent`, `border-brand-pdp`, …
-- `src/brands/overrides.js` — replace a single Storyblok block for one brand; everything
-  else stays shared.
-- Each brand has its own Storyblok space (own content, editors, Visual Editor preview URL).
-
-```bash
-npm run dev:https        # Diamonds Factory, https://localhost:3000 (.env.local)
-npm run dev:ab           # Austen & Blake,  https://localhost:3001 (.env.austenblake)
-npm run build:ab         # builds into .next-austenblake
-npm run migrate:schema:ab -- --push   # same blocks into the Austen & Blake space
-```
-
-Copy `.env.austenblake.example` to `.env.austenblake` and fill in **every** key (anything
-missing falls back to the Diamonds Factory `.env.local`). In the Austen & Blake Storyblok
-space, set the Visual Editor preview URL to `https://localhost:3001/`.
-
-Austen & Blake's colours are placeholders until the real brand palette is provided.
+`--push` only adds what's missing — fields changed in the Storyblok UI are kept.
 
 ## Backups
 
-Content lives on Storyblok's servers (no local database like Strapi's `.tmp/data.db`).
-To restore a single story, use its **version history** in Storyblok, and deleted stories
-go to the **trash** first. For everything else (a deleted field or block, bulk mistakes,
-moving to a company space), export the whole space into the repo:
+Content lives on Storyblok's servers. To restore a single story, use its **version history**
+in Storyblok; deleted stories go to the **trash** first. For everything else (a deleted field
+or block, bulk mistakes, moving to another space), export the whole space into the repo:
 
 ```bash
-npm run backup:storyblok                    # storyblok/backup/<date>/ as JSON
-npm run backup:storyblok -- --with-assets   # also downloads the image files (not committed)
+npm run backup:df                    # tools/storyblok/backup/diamondsfactory/<date>/
+npm run backup:ab                    # tools/storyblok/backup/austenblake/<date>/
+npm run backup:df -- --with-assets   # also downloads the image files (not committed)
 ```
 
 It exports blocks, block folders, every story (drafts included), image details and
-datasources. Commit the JSON so git history also works as a content history. Needs
-`STORYBLOK_SPACE_ID`, `STORYBLOK_MANAGEMENT_TOKEN` and `STORYBLOK_REGION` in `.env.local`.
-
-## Versioning block schemas (optional)
-
-Blocks live in Storyblok, not in this repo. To keep a copy in git, use the Storyblok CLI:
-
-```bash
-npx storyblok login
-npx storyblok components pull --space <SPACE_ID>
-```
-
-Run `npx storyblok --help` for the exact options of your CLI version.
+datasources. Commit the JSON so git history also works as a content history.
