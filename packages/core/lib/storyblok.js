@@ -1,4 +1,5 @@
 import { apiPlugin, storyblokInit } from "@storyblok/react/rsc";
+import { getCurrentLocale } from "@df/core/lib/locale";
 
 // Storyblok client (each app's .env.local has its own space token).
 // Blocks -> React components are registered by @df/ui/storyblok, which every
@@ -32,6 +33,7 @@ export async function fetchStory(slug, params = {}) {
   try {
     const { data } = await getStoryblokApi().get(`cdn/stories/${slug}`, {
       version,
+      language: await getCurrentLocale(),
       ...params,
     });
     return data.story;
@@ -58,6 +60,9 @@ export async function fetchFirstStory(contentType) {
 export async function fetchStories(params = {}) {
   const { data } = await getStoryblokApi().get("cdn/stories", {
     version,
+    // The language picked in the header (field-level translations); fields
+    // without a translation fall back to the default language.
+    language: await getCurrentLocale(),
     per_page: 100,
     ...params,
   });

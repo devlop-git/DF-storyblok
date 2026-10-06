@@ -39,7 +39,8 @@ export async function fetchStoryForMarket(contentType, field = "market", fallbac
 
 async function findMarketStory() {
   const market = getCurrentMarket().toLowerCase();
-  const markets = await fetchStories({ content_type: "market" });
+  // Match on the untranslated slug so the lookup doesn't change with the language.
+  const markets = await fetchStories({ content_type: "market", language: "default" });
   return (
     markets.find((m) => (m.content?.slug || m.slug || "").toLowerCase() === market) ??
     null

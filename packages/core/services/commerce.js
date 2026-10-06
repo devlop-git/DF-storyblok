@@ -6,7 +6,7 @@ import { categoryName, slugify } from "@df/core/utils/slugify";
 const CATEGORY_API =
   process.env.CATEGORY_API_URL || "http://localhost:8010/api/category/v1";
 const PLP_API = process.env.PLP_API_URL || "http://localhost:8040/api/plp/v1";
-const PDP_API = process.env.PDP_API_URL || "http://localhost:8040/api/pdp/v1";
+const PDP_API = process.env.PDP_API_URL || "http://localhost:8040/api/pdp/v2";
 
 const SESSION_ID_KEY = "x-session-id";
 
