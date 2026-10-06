@@ -1,0 +1,279 @@
+{
+  "name": "HomePage German",
+  "parent_id": 0,
+  "group_id": "5e93ee30-c2e0-4912-bbe9-05c34102e04c",
+  "alternates": [],
+  "created_at": "2026-09-29T06:39:12.032Z",
+  "deleted_at": null,
+  "sort_by_date": null,
+  "tag_list": [],
+  "updated_at": "2026-09-29T06:41:52.554Z",
+  "published_at": null,
+  "id": 225174945946417,
+  "uuid": "b4814bea-503f-4c2e-ba02-b708266113d2",
+  "is_folder": false,
+  "content": {
+    "_uid": "6b18c857-494e-4385-96fa-cb02de282440",
+    "Title": "Homepage EN",
+    "Sections": [
+      {
+        "_uid": "0fc6498b-7eb0-46e8-940d-13b3813fb6b7",
+        "component": "new_home_page",
+        "heroSlides": [
+          {
+            "_uid": "3ede7e33-5ea8-4ed3-8dc3-3a86812a694f",
+            "title": {
+              "type": "doc",
+              "attrs": {
+                "backgroundColor": null
+              },
+              "content": [
+                {
+                  "type": "heading",
+                  "attrs": {
+                    "level": 3,
+                    "textAlign": null
+                  },
+                  "content": [
+                    {
+                      "text": "hochwertiger Schmuck,",
+                      "type": "text"
+                    }
+                  ]
+                },
+                {
+                  "type": "heading",
+                  "attrs": {
+                    "level": 3,
+                    "textAlign": null
+                  },
+                  "content": [
+                    {
+                      "text": "direkt vom Hersteller",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ]
+            },
+            "altText": "DF",
+            "subTitle": "Zusätzlich 15 % Rabatt auf Verlobungsringe",
+            "tabImage": {
+              "id": null,
+              "alt": null,
+              "name": "",
+              "focus": null,
+              "title": null,
+              "source": null,
+              "filename": "",
+              "copyright": null,
+              "fieldtype": "asset",
+              "meta_data": {}
+            },
+            "component": "hero_banner",
+            "buttonLink": "https://www.diamondsfactory.de/sale",
+            "buttonText": "Jetzt einkaufen",
+            "mobileImage": [],
+            "desktopImage": [
+              {
+                "id": 224887265093692,
+                "alt": "DF home page banner",
+                "name": "",
+                "focus": "",
+                "title": "homepage",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/295526440790014/2880x1200/49aa9911a0/autumn-home-desktop-english.jpg",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {
+                  "alt": "DF home page banner",
+                  "size": "2880x1200",
+                  "title": "homepage"
+                }
+              }
+            ],
+            "contentAlignment": "Left"
+          }
+        ]
+      },
+      {
+        "_uid": "95a91eb2-3e00-470a-b259-462e813a6649",
+        "posts": [
+          {
+            "_uid": "86a0f61c-4ead-4344-8e81-70a1ef04977d",
+            "instaURL": "#",
+            "component": "posts",
+            "tabInstaImage": [],
+            "mobileInstaImage": [],
+            "desktopInstaImage": [
+              {
+                "id": 224862607075359,
+                "alt": "",
+                "name": "",
+                "focus": "",
+                "title": "",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/295526440790014/270x270/4e9881df8f/instapost3.jpg",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {
+                  "size": "270x270"
+                }
+              }
+            ]
+          },
+          {
+            "_uid": "c2809cab-cb51-49eb-8429-588b387715e1",
+            "instaURL": "#",
+            "component": "posts",
+            "tabInstaImage": [],
+            "mobileInstaImage": [],
+            "desktopInstaImage": [
+              {
+                "id": 224862607124522,
+                "alt": "",
+                "name": "",
+                "focus": "",
+                "title": "",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/295526440790014/270x270/54dab49f2b/instapost2.jpg",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {
+                  "size": "270x270"
+                }
+              }
+            ]
+          },
+          {
+            "_uid": "a5859e57-0735-4b35-a22b-99e6331c9de7",
+            "instaURL": "#",
+            "component": "posts",
+            "tabInstaImage": [],
+            "mobileInstaImage": [],
+            "desktopInstaImage": [
+              {
+                "id": 224862607087651,
+                "alt": "",
+                "name": "",
+                "focus": "",
+                "title": "",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/295526440790014/270x270/824299061e/instapost1.jpg",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {
+                  "size": "270x270"
+                }
+              }
+            ]
+          }
+        ],
+        "title": "Join us @diamondsfactoryworld",
+        "component": "instagram_feed"
+      },
+      {
+        "_uid": "a23284f3-d517-4ae6-86ef-2ed65dfcfca5",
+        "image": {
+          "id": null,
+          "alt": null,
+          "name": "",
+          "focus": null,
+          "title": null,
+          "source": null,
+          "filename": "",
+          "copyright": null,
+          "fieldtype": "asset",
+          "meta_data": {}
+        },
+        "title": "FAQs of Home page",
+        "faqItem": [
+          {
+            "_uid": "4f2120c3-2161-44cb-9b14-8ea2976a2aa2",
+            "answer": "Delivering first-class customer service is important to us. We offer a 30 day returns policy, meaning that should for any reason you be unhappy with your purchase you can return it to us for a full refund with no questions asked.\n\nGet In Touch\nIf you would prefer to talk with our friendly Customer Care Team about returning an item, please get in touch on 0800 1844 819 or enter into a live chat",
+            "question": "Can I return my order?",
+            "component": "faq_items"
+          }
+        ],
+        "component": "faq",
+        "description": "This is FAQ section.",
+        "titlePosition": "left"
+      }
+    ],
+    "component": "home_page"
+  },
+  "published": false,
+  "slug": "25c2c28d-323d-4f97-afd4-0f40e31f6d5c",
+  "path": null,
+  "full_slug": "25c2c28d-323d-4f97-afd4-0f40e31f6d5c",
+  "default_root": null,
+  "disble_fe_editor": false,
+  "disable_fe_editor": false,
+  "parent": null,
+  "is_startpage": false,
+  "unpublished_changes": true,
+  "meta_data": null,
+  "imported_at": null,
+  "preview_token": {
+    "token": "63d23e89fc40b14549816e7b9b4ff21038d410ae",
+    "timestamp": "1791178636"
+  },
+  "pinned": false,
+  "breadcrumbs": [],
+  "publish_at": null,
+  "expire_at": null,
+  "first_published_at": null,
+  "last_author": {
+    "id": 224818409670620,
+    "userid": "devanshee.rupabheda@navgrahaa.com",
+    "friendly_name": "Devanshi T"
+  },
+  "last_author_id": 224818409670620,
+  "user_ids": [],
+  "space_role_ids": [],
+  "translated_slugs": [],
+  "localized_paths": [
+    {
+      "path": "25c2c28d-323d-4f97-afd4-0f40e31f6d5c",
+      "name": null,
+      "lang": "en",
+      "published": false
+    },
+    {
+      "path": "25c2c28d-323d-4f97-afd4-0f40e31f6d5c",
+      "name": null,
+      "lang": "de",
+      "published": true
+    },
+    {
+      "path": "25c2c28d-323d-4f97-afd4-0f40e31f6d5c",
+      "name": null,
+      "lang": "fr",
+      "published": false
+    }
+  ],
+  "position": 0,
+  "translated_stories": [
+    {
+      "id": 225175603491701,
+      "story_id": 225174945946417,
+      "space_id": 295526440790014,
+      "first_published_at": "2026-09-29T06:41:52.568Z",
+      "published_at": "2026-09-29T06:41:52.568Z",
+      "unpublished_changes": false,
+      "lang": "de",
+      "taxonomy_terms": []
+    }
+  ],
+  "can_not_view": false,
+  "is_scheduled": null,
+  "scheduled_dates": null,
+  "ideas": [],
+  "current_version_id": 225175603371601,
+  "variant_type": null,
+  "taxonomy_terms": [],
+  "experiment_ids": [],
+  "stage": null,
+  "stages": [],
+  "favourite_for_user_ids": []
+}

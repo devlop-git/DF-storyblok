@@ -1,0 +1,79 @@
+[
+  {
+    "name": "Banners",
+    "id": 225579248934098,
+    "uuid": "0a18ebd9-df4f-4200-8513-0b28ce9088b1",
+    "parent_id": null,
+    "parent_uuid": null
+  },
+  {
+    "name": "Carousels",
+    "id": 225579249741011,
+    "uuid": "fc14d308-df58-4ba3-ae2b-d570fbd525ea",
+    "parent_id": null,
+    "parent_uuid": null
+  },
+  {
+    "name": "Collection Types",
+    "id": 225579248082129,
+    "uuid": "ee6e3107-11f6-4937-91be-2c02584a7014",
+    "parent_id": null,
+    "parent_uuid": null
+  },
+  {
+    "name": "Content Blocks",
+    "id": 225579251059924,
+    "uuid": "3d252f68-0df0-4477-a240-c49b05062957",
+    "parent_id": null,
+    "parent_uuid": null
+  },
+  {
+    "name": "Forms",
+    "id": 225579252333781,
+    "uuid": "23bca54a-0b47-43d9-a27b-7d18fb8c3a45",
+    "parent_id": null,
+    "parent_uuid": null
+  },
+  {
+    "name": "Grids",
+    "id": 225579253124310,
+    "uuid": "c3af8fb9-f862-4a8d-ab20-f139d6d9e81e",
+    "parent_id": null,
+    "parent_uuid": null
+  },
+  {
+    "name": "Plp",
+    "id": 225579254410455,
+    "uuid": "8bf313dc-51f6-498a-a4e9-08c3a6e04483",
+    "parent_id": null,
+    "parent_uuid": null
+  },
+  {
+    "name": "Sections",
+    "id": 225579255250136,
+    "uuid": "1d1381da-9dd4-4399-8fa0-916a0715b754",
+    "parent_id": null,
+    "parent_uuid": null
+  },
+  {
+    "name": "Single Types",
+    "id": 225579246738640,
+    "uuid": "227ecb60-06d5-4463-919c-b2101a02b6ea",
+    "parent_id": null,
+    "parent_uuid": null
+  },
+  {
+    "name": "Social Proof",
+    "id": 225579256646873,
+    "uuid": "9dc7b54b-a4ba-42b3-bf6b-0357e39597b7",
+    "parent_id": null,
+    "parent_uuid": null
+  },
+  {
+    "name": "Tables",
+    "id": 225579257445594,
+    "uuid": "ea1ef214-d5c0-48b0-81c8-c4a98e05c3a2",
+    "parent_id": null,
+    "parent_uuid": null
+  }
+]

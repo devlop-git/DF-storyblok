@@ -1,0 +1,86 @@
+{
+  "name": "About",
+  "parent_id": null,
+  "group_id": "799a4d93-eb51-46a1-8eb7-865606e8ed8a",
+  "alternates": [],
+  "created_at": "2026-09-29T10:50:57.250Z",
+  "deleted_at": null,
+  "sort_by_date": null,
+  "tag_list": [],
+  "updated_at": "2026-09-29T11:52:45.941Z",
+  "published_at": "2026-09-29T11:52:45.927Z",
+  "id": 225236816928657,
+  "uuid": "d1c5b82c-916f-4faf-a9e3-7235285446ee",
+  "is_folder": false,
+  "content": {
+    "key": "about",
+    "_uid": "2c0d3971-8ebf-40b5-a483-fc4eb31585da",
+    "order": "0",
+    "active": true,
+    "heading": "About",
+    "component": "footer_column"
+  },
+  "published": true,
+  "slug": "about",
+  "path": null,
+  "full_slug": "about",
+  "default_root": null,
+  "disble_fe_editor": false,
+  "disable_fe_editor": false,
+  "parent": null,
+  "is_startpage": false,
+  "unpublished_changes": false,
+  "meta_data": null,
+  "imported_at": null,
+  "preview_token": {
+    "token": "46216d8fb523923f3ea795825b62e7233fff5008",
+    "timestamp": "1791178633"
+  },
+  "pinned": false,
+  "breadcrumbs": [],
+  "publish_at": null,
+  "expire_at": null,
+  "first_published_at": "2026-09-29T11:52:45.927Z",
+  "last_author": {
+    "id": 224818409670620,
+    "userid": "devanshee.rupabheda@navgrahaa.com",
+    "friendly_name": "Devanshi T"
+  },
+  "last_author_id": 224818409670620,
+  "user_ids": [],
+  "space_role_ids": [],
+  "translated_slugs": [],
+  "localized_paths": [
+    {
+      "path": "about",
+      "name": null,
+      "lang": "en",
+      "published": false
+    },
+    {
+      "path": "about",
+      "name": null,
+      "lang": "de",
+      "published": false
+    },
+    {
+      "path": "about",
+      "name": null,
+      "lang": "fr",
+      "published": false
+    }
+  ],
+  "position": -70,
+  "translated_stories": [],
+  "can_not_view": false,
+  "is_scheduled": null,
+  "scheduled_dates": null,
+  "ideas": [],
+  "current_version_id": 225252007494672,
+  "variant_type": null,
+  "taxonomy_terms": [],
+  "experiment_ids": [],
+  "stage": null,
+  "stages": [],
+  "favourite_for_user_ids": []
+}

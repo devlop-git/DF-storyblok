@@ -1,0 +1,149 @@
+{
+  "name": "HomePage",
+  "parent_id": null,
+  "group_id": "6e0c92c2-10a6-4386-b670-e4b2b50bfda1",
+  "alternates": [],
+  "created_at": "2026-09-30T10:12:11.003Z",
+  "deleted_at": null,
+  "sort_by_date": null,
+  "tag_list": [],
+  "updated_at": "2026-09-30T10:22:35.008Z",
+  "published_at": "2026-09-30T10:22:34.996Z",
+  "id": 225581183015929,
+  "uuid": "ee70ed38-d3a5-4dd7-88a2-252b14a17137",
+  "is_folder": false,
+  "content": {
+    "_uid": "a3799370-1f90-4c6c-b973-f85cf9988a6d",
+    "Title": "Homepage EN",
+    "market": "9623b6eb-adeb-4c58-b0a2-0e754df777b4",
+    "Sections": [
+      {
+        "_uid": "84dc3718-58da-4014-bf09-647f6a5d7601",
+        "component": "new_home_page",
+        "heroSlides": [
+          {
+            "_uid": "de73ada7-c802-431c-8f1f-f27edc841eff",
+            "title": "",
+            "altText": "",
+            "subTitle": "",
+            "tabImage": {
+              "id": null,
+              "alt": null,
+              "name": "",
+              "focus": null,
+              "title": null,
+              "source": null,
+              "filename": "",
+              "copyright": null,
+              "fieldtype": "asset",
+              "meta_data": {}
+            },
+            "component": "hero_banner",
+            "buttonLink": "",
+            "buttonText": "",
+            "mobileImage": [],
+            "desktopImage": [
+              {
+                "id": 225581591096889,
+                "alt": "",
+                "name": "",
+                "focus": "",
+                "title": "",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/295573506959471/2880x1240/1a76752951/era-collection-home-banner-desk.avif",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {
+                  "size": "2880x1240"
+                }
+              }
+            ],
+            "contentAlignment": ""
+          },
+          {
+            "_uid": "de29f68f-1814-47c2-abe3-90edc2f87013",
+            "title": "",
+            "altText": "",
+            "subTitle": "",
+            "tabImage": {
+              "id": null,
+              "alt": null,
+              "name": "",
+              "focus": null,
+              "title": null,
+              "source": null,
+              "filename": "",
+              "copyright": null,
+              "fieldtype": "asset",
+              "meta_data": {}
+            },
+            "component": "hero_banner",
+            "buttonLink": "",
+            "buttonText": "",
+            "mobileImage": [],
+            "desktopImage": [
+              {
+                "id": 225581840252522,
+                "alt": "",
+                "name": "",
+                "focus": "",
+                "title": "",
+                "source": "",
+                "filename": "https://a.storyblok.com/f/295573506959471/2880x1240/9c5b8b12a9/autumn-sale-home-banner-desk-uk.avif",
+                "copyright": "",
+                "fieldtype": "asset",
+                "meta_data": {}
+              }
+            ],
+            "contentAlignment": ""
+          }
+        ]
+      }
+    ],
+    "component": "home_page"
+  },
+  "published": true,
+  "slug": "home",
+  "path": null,
+  "full_slug": "home",
+  "default_root": null,
+  "disble_fe_editor": false,
+  "disable_fe_editor": false,
+  "parent": null,
+  "is_startpage": false,
+  "unpublished_changes": false,
+  "meta_data": null,
+  "imported_at": null,
+  "preview_token": {
+    "token": "b04db199cac7e6ca1010ffda2ea71c1d9d05664a",
+    "timestamp": "1791178646"
+  },
+  "pinned": false,
+  "breadcrumbs": [],
+  "publish_at": null,
+  "expire_at": null,
+  "first_published_at": "2026-09-30T10:18:48.721Z",
+  "last_author": {
+    "id": 224818409670620,
+    "userid": "devanshee.rupabheda@navgrahaa.com",
+    "friendly_name": "Devanshi T"
+  },
+  "last_author_id": 224818409670620,
+  "user_ids": [],
+  "space_role_ids": [],
+  "translated_slugs": [],
+  "localized_paths": [],
+  "position": 0,
+  "translated_stories": [],
+  "can_not_view": false,
+  "is_scheduled": null,
+  "scheduled_dates": null,
+  "ideas": [],
+  "current_version_id": 225583738754320,
+  "variant_type": null,
+  "taxonomy_terms": [],
+  "experiment_ids": [],
+  "stage": null,
+  "stages": [],
+  "favourite_for_user_ids": []
+}
