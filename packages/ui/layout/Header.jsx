@@ -1,15 +1,16 @@
 import { LANGUAGES, MARKET } from "@df/core/constants/languages";
 import { getCurrentLocale } from "@df/core/lib/locale";
-import { fetchStory } from "@df/core/lib/storyblok";
+import { fetchFirstStory } from "@df/core/lib/storyblok";
 import { firstAsset } from "@df/core/utils/storyblok";
 import HeaderTabs from "./HeaderTabs";
 import Navigation from "./Navigation";
 
-// Header content (logo) comes from the Storyblok "header" story (content type
-// "header", slug "global/header"); the category menu comes from the Commerce API.
+// Header content (logo) comes from the Storyblok story of content type "header"
+// (looked up by type, so it works wherever the story lives in the content tree);
+// the category menu comes from the Commerce API.
 const Header = async () => {
   const locale = await getCurrentLocale();
-  const headerStory = await fetchStory("global/header").catch(() => null);
+  const headerStory = await fetchFirstStory("header").catch(() => null);
 
   const languages = LANGUAGES[MARKET];
   const logo = firstAsset(headerStory?.content?.Logo);
