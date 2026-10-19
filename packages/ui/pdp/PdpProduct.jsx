@@ -60,6 +60,7 @@ export default function PdpProduct({ pdp }) {
             meta={{ ...meta, slug, locale }}
             bomDetails={bomDetails}
             inStockProducts={inStockProducts}
+            imagesInformation={imagesInformation}
           />
         </div>
       </section>

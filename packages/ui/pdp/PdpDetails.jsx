@@ -12,6 +12,7 @@ import PdpInStockTable from "./PdpInStockTable";
 import PdpStickyBanner from "./PdpStickyBanner";
 import { brand } from "@brand/config";
 import { buildSku, initialSelections } from "@df/core/utils/buildSku";
+import { buildAddToCartInput } from "@df/core/utils/cartInput";
 import { formatPrice } from "@df/core/utils/formatPrice";
 
 // Rendered with a `key` of sku + locale (see PdpProduct), so new server data
@@ -24,12 +25,14 @@ export default function PdpDetails({
   meta,
   bomDetails,
   inStockProducts,
+  imagesInformation,
 }) {
   const [pdpData, setPdpData] = useState({
     basicDetails,
     priceInformation,
     bomDetails,
     inStockProducts,
+    imagesInformation,
   });
 
   // True while an option-change fetch is in flight.
@@ -98,12 +101,43 @@ export default function PdpDetails({
         priceInformation: data.priceInformation,
         bomDetails: data.bomDetails,
         inStockProducts: data.inStockProducts,
+        imagesInformation: data.imagesInformation,
       });
       window.history.replaceState(null, "", `/design/${meta.slug}/${nextSku}`);
     } catch (error) {
       console.error("PDP option change:", error.message);
     } finally {
       if (id === requestId.current) setIsLoading(false);
+    }
+  };
+
+  // Add to Bag: posts the full AddToCartInput (sku, product, pricing, selected
+  // options, metadata) to /api/cart/add, which re-checks the price against the
+  // PDP API and adds the line to the Vendure cart.
+  const [isAdding, setIsAdding] = useState(false);
+  const [bagMessage, setBagMessage] = useState(null);
+
+  const addToBag = async () => {
+    setIsAdding(true);
+    setBagMessage(null);
+    try {
+      const res = await fetch("/api/cart/add", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(
+          buildAddToCartInput(
+            { ...pdpData, options },
+            { sku, slug: meta?.slug, quantity: 1, language: meta?.locale, selections },
+          ),
+        ),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `Cart ${res.status}`);
+      setBagMessage({ type: "success", text: "Added to bag" });
+    } catch (error) {
+      setBagMessage({ type: "error", text: error.message });
+    } finally {
+      setIsAdding(false);
     }
   };
 
@@ -227,10 +261,21 @@ export default function PdpDetails({
           {/* Add to bag */}
           <button
             type="button"
-            className="w-full bg-brand-pdp py-4 text-sm font-semibold uppercase text-white transition-colors hover:bg-brand-pdp-hover"
+            onClick={addToBag}
+            disabled={isAdding || isLoading || !salePrice}
+            className="w-full bg-brand-pdp py-4 text-sm font-semibold uppercase text-white transition-colors hover:bg-brand-pdp-hover disabled:cursor-not-allowed disabled:opacity-60"
           >
-            Add to Bag ({formatPrice(salePrice, currency)})
+            {isAdding ? "Adding…" : `Add to Bag (${formatPrice(salePrice, currency)})`}
           </button>
+          {bagMessage && (
+            <p
+              className={`text-sm ${
+                bagMessage.type === "error" ? "text-[#e72618]" : "text-brand-pdp"
+              }`}
+            >
+              {bagMessage.text}
+            </p>
+          )}
         </>
       ) : (
         // Pre-configured, ready-to-ship variants: one row = one orderable
