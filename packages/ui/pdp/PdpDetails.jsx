@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { FiChevronDown } from "react-icons/fi";
 import { LuTruck } from "react-icons/lu";
 import { RiShieldCheckLine } from "react-icons/ri";
@@ -113,7 +114,7 @@ export default function PdpDetails({
 
   // Add to Bag: posts the full AddToCartInput (sku, product, pricing, selected
   // options, metadata) to /api/cart/add, which re-checks the price against the
-  // PDP API and adds the line to the Vendure cart.
+  // PDP API and adds the line to the Medusa cart.
   const [isAdding, setIsAdding] = useState(false);
   const [bagMessage, setBagMessage] = useState(null);
 
@@ -274,6 +275,14 @@ export default function PdpDetails({
               }`}
             >
               {bagMessage.text}
+              {bagMessage.type === "success" && (
+                <>
+                  {" · "}
+                  <Link href="/checkout" className="underline">
+                    Go to checkout
+                  </Link>
+                </>
+              )}
             </p>
           )}
         </>

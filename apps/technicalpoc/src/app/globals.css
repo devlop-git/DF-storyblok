@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@import "@df/theme/theme.css";
+
+/* Diamonds Factory brand colours (used as bg-brand-primary, text-brand-accent, …). */
+:root {
+  --brand-primary: #a5744a; /* buttons, header icon hover, form borders */
+  --brand-primary-hover: #8c643f;
+  --brand-accent: #a0704f; /* links, highlighted words, filter button */
+  --brand-accent-hover: #8d6144;
+  --brand-pdp: #9c6d4b; /* product page: price, selected options, CTAs */
+  --brand-pdp-hover: #835a3d;
+  --brand-muted: #9c7a58; /* secondary icons */
+  --brand-filter: #8b6b49; /* PLP filter labels */
+  --brand-filter-strong: #976649;
+}

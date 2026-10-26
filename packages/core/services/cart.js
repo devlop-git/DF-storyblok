@@ -1,71 +1,95 @@
 import { cookies } from "next/headers";
 
-// Vendure Shop API (GraphQL). The cart lives in Vendure's "active order",
-// which is tied to the auth token Vendure returns on the first call.
-const VENDURE_SHOP_API =
-  process.env.VENDURE_SHOP_API_URL || "http://localhost:3002/shop-api";
+// Medusa v2 store API. POST /store/add-to-cart is a custom route that adds a
+// configured design to a cart as a custom line item (see utils/cartInput.js
+// for the payload). The cart is identified by cart_id: omitted on the first
+// call, then the returned cart.id is sent on every later call.
+const MEDUSA_STORE_URL = process.env.MEDUSA_STORE_URL || "http://localhost:9000";
+const MEDUSA_PUBLISHABLE_KEY = process.env.MEDUSA_PUBLISHABLE_KEY;
 
-// httpOnly cookie that holds the Vendure token (set by routes/cartApi.js).
-export const VENDURE_TOKEN_COOKIE = "vendure-token";
-const VENDURE_TOKEN_HEADER = "vendure-auth-token";
+// httpOnly cookie that holds the Medusa cart id (set by routes/cartApi.js).
+export const CART_ID_COOKIE = "medusa-cart-id";
 
-const ADD_CONFIGURED_ITEM = /* GraphQL */ `
-  mutation AddConfiguredItem($input: AddToCartInput!) {
-    addConfiguredItemToOrder(input: $input) {
-      __typename
-      ... on Order {
-        id
-        code
-        totalQuantity
-        totalWithTax
-        currencyCode
-      }
-      ... on ErrorResult {
-        errorCode
-        message
-      }
-    }
+// Every Medusa store call needs the publishable key (it picks the sales channel).
+function medusaFetch(path, { body, ...options } = {}) {
+  if (!MEDUSA_PUBLISHABLE_KEY) {
+    throw new Error("MEDUSA_PUBLISHABLE_KEY is not set in .env.local");
   }
-`;
 
-// Sends `Authorization: Bearer <token>` once we have a token; the first call
-// goes without one and Vendure answers with a new token in the response header.
-async function shopApiFetch(query, variables) {
-  const cookieStore = await cookies();
-  const token = cookieStore.get(VENDURE_TOKEN_COOKIE)?.value;
-
-  const response = await fetch(VENDURE_SHOP_API, {
-    method: "POST",
+  return fetch(`${MEDUSA_STORE_URL}${path}`, {
+    ...options,
     headers: {
       "Content-Type": "application/json",
-      ...(token && { Authorization: `Bearer ${token}` }),
+      "x-publishable-api-key": MEDUSA_PUBLISHABLE_KEY,
     },
-    body: JSON.stringify({ query, variables }),
+    ...(body && { method: "POST", body: JSON.stringify(body) }),
     cache: "no-store",
   });
+}
 
+// Reads a Medusa response; on failure throws with Medusa's message, attached
+// as `userMessage` for 4xx errors (e.g. invalid data) so it can be shown.
+async function readMedusaResponse(response, label) {
+  const data = await response.json().catch(() => ({}));
   if (!response.ok) {
-    const error = await response.text();
-    throw new Error(`Vendure Shop API error ${response.status}: ${error}`);
+    const error = new Error(`Medusa ${label} error ${response.status}: ${data.message}`);
+    if (response.status < 500 && data.message) error.userMessage = data.message;
+    throw error;
+  }
+  return data;
+}
+
+const postAddToCart = (body) => medusaFetch("/store/add-to-cart", { body });
+
+// Adds a configured design (AddToCartInput, see utils/cartInput.js) to the
+// shopper's cart, creating the cart on first use. Returns the Medusa cart.
+export async function addConfiguredItemToBag(input) {
+  const cookieStore = await cookies();
+  const cartId = cookieStore.get(CART_ID_COOKIE)?.value;
+
+  let response = await postAddToCart({ ...input, cart_id: cartId });
+
+  // The saved cart no longer exists (deleted, or a different Medusa DB):
+  // start a new one instead of failing.
+  if (response.status === 404 && cartId) {
+    response = await postAddToCart(input);
   }
 
-  const { data, errors } = await response.json();
-  if (errors?.length) {
-    const error = new Error(`Vendure Shop API: ${errors.map((e) => e.message).join("; ")}`);
-    // Vendure's validation errors (invalid SKU, no price, wrong currency) are
-    // safe to show the shopper; anything else stays a generic failure.
-    const inputError = errors.find((e) => e.extensions?.code === "USER_INPUT_ERROR");
-    if (inputError) error.userMessage = inputError.message;
+  const data = await readMedusaResponse(response, "add-to-cart");
+  return data.cart;
+}
+
+const CART_FIELDS = "id,currency_code,total,subtotal,tax_total,completed_at,*items";
+
+// The shopper's current cart (from the cart id cookie), or null when there is
+// none, it no longer exists, or it has already been checked out.
+export async function getCart() {
+  const cookieStore = await cookies();
+  const cartId = cookieStore.get(CART_ID_COOKIE)?.value;
+  if (!cartId) return null;
+
+  const response = await medusaFetch(`/store/carts/${cartId}?fields=${CART_FIELDS}`);
+  if (response.status === 404) return null;
+
+  const { cart } = await readMedusaResponse(response, "cart");
+  return cart?.completed_at ? null : cart;
+}
+
+// One-call checkout of the shopper's cart: sets email and addresses, pays with
+// Medusa's test payment provider and completes the cart. Returns the order.
+// billing_address defaults to shipping_address on the Medusa side.
+export async function checkoutCart({ email, shipping_address, billing_address }) {
+  const cookieStore = await cookies();
+  const cartId = cookieStore.get(CART_ID_COOKIE)?.value;
+  if (!cartId) {
+    const error = new Error("No cart to check out");
+    error.userMessage = "Your bag is empty";
     throw error;
   }
 
-  return { data, token: response.headers.get(VENDURE_TOKEN_HEADER) };
-}
-
-// Adds a configured design (AddToCartInput, see utils/cartInput.js) to the
-// active order. Returns { result, token }: result is an Order or an
-// ErrorResult ({ errorCode, message }); token is the (new) Vendure token, if any.
-export async function addConfiguredItemToBag(input) {
-  const { data, token } = await shopApiFetch(ADD_CONFIGURED_ITEM, { input });
-  return { result: data.addConfiguredItemToOrder, token };
+  const response = await medusaFetch("/store/checkout", {
+    body: { cart_id: cartId, email, shipping_address, billing_address },
+  });
+  const { order } = await readMedusaResponse(response, "checkout");
+  return order;
 }

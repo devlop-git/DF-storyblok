@@ -1,0 +1,184 @@
+{
+  "name": "Engagement Rings",
+  "parent_id": 0,
+  "group_id": "55525a18-774a-434c-8e17-8ea57a01bda2",
+  "alternates": [],
+  "created_at": "2026-10-26T10:10:09.277Z",
+  "deleted_at": null,
+  "sort_by_date": null,
+  "tag_list": [],
+  "updated_at": "2026-10-26T10:10:09.330Z",
+  "published_at": "2026-10-26T10:10:09.318Z",
+  "id": 234781938818922,
+  "uuid": "a0e16cd0-40c2-4e8f-add5-5e51d98c3e40",
+  "is_folder": false,
+  "content": {
+    "_uid": "f4a492c9-d207-4e80-b816-642c7ebbbe9a",
+    "title": "Engagement Rings",
+    "component": "plp_page",
+    "plp_section": [
+      {
+        "_uid": "f67eb721-e4ca-4189-a2ec-736a7abb9d7f",
+        "title": "Engagement Rings",
+        "component": "banner_info",
+        "description": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "text": "Discover our engagement rings, handcrafted to order in your choice of metal and stone.",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "_uid": "f32be1a3-178f-4b8c-aa4c-76d0e0208d36",
+        "component": "algolia_product_listing",
+        "gridConfig": [
+          {
+            "_uid": "7f312be8-992d-45e4-a76e-5e4901527e83",
+            "component": "product_grid_cofiguration",
+            "tabColumns": "2",
+            "mobileColumns": "2",
+            "desktopColumns": "3"
+          }
+        ],
+        "promo_tiles": [
+          {
+            "_uid": "ac0398c1-b888-4d56-a044-3b7de6b6b2d1",
+            "text": "Receive €100 off when you spend €1,800 in-store.",
+            "title": "Book an appointment",
+            "position": "4",
+            "component": "plp_promo_tile",
+            "button_label": "Book now"
+          }
+        ],
+        "show_search": true,
+        "filterConfig": [
+          {
+            "_uid": "8a36258c-0a8c-40f4-be10-9b8713e2918b",
+            "width": "280",
+            "sticky": true,
+            "position": "left",
+            "component": "filter_configuration"
+          }
+        ],
+        "hits_per_page": "24",
+        "toolbarConfig": [
+          {
+            "_uid": "48ee98f9-ed41-4314-8389-beef3b474394",
+            "showSort": true,
+            "component": "toolbar_configuration",
+            "showFilterButton": true,
+            "showProductCount": true
+          }
+        ]
+      },
+      {
+        "_uid": "a87d8435-87a7-465a-92f7-746115078803",
+        "title": "Engagement Rings",
+        "component": "read_more_content",
+        "readLessLabel": "Read less",
+        "readMoreLabel": "Read more",
+        "previewContent": "Discover our engagement rings, handcrafted to order in your choice of metal and stone.",
+        "expandedContent": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "text": "Every piece is made to order in your choice of metal and stone.",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "algoliaCategory": "Engagement Ring"
+  },
+  "published": true,
+  "slug": "engagement-rings",
+  "path": null,
+  "full_slug": "engagement-rings",
+  "default_root": null,
+  "disble_fe_editor": false,
+  "disable_fe_editor": false,
+  "parent": null,
+  "is_startpage": false,
+  "unpublished_changes": false,
+  "meta_data": null,
+  "imported_at": null,
+  "preview_token": {
+    "token": "8045fbcc353e7dcea3492f220ee4099777c7f916",
+    "timestamp": "1793018520"
+  },
+  "pinned": false,
+  "breadcrumbs": [],
+  "publish_at": null,
+  "expire_at": null,
+  "first_published_at": "2026-10-26T10:10:09.318Z",
+  "last_author": {
+    "id": 224818409670620,
+    "userid": "devanshee.rupabheda@navgrahaa.com",
+    "friendly_name": "Devanshi Rupabheda"
+  },
+  "last_author_id": 224818409670620,
+  "user_ids": [],
+  "space_role_ids": [],
+  "translated_slugs": [],
+  "localized_paths": [
+    {
+      "path": "engagement-rings",
+      "name": null,
+      "lang": "us-fr",
+      "published": false
+    },
+    {
+      "path": "engagement-rings",
+      "name": null,
+      "lang": "us-es",
+      "published": false
+    },
+    {
+      "path": "engagement-rings",
+      "name": null,
+      "lang": "us-en",
+      "published": false
+    },
+    {
+      "path": "engagement-rings",
+      "name": null,
+      "lang": "de-en",
+      "published": false
+    },
+    {
+      "path": "engagement-rings",
+      "name": null,
+      "lang": "de-de",
+      "published": false
+    }
+  ],
+  "position": -30,
+  "translated_stories": [],
+  "can_not_view": false,
+  "is_scheduled": null,
+  "scheduled_dates": null,
+  "ideas": [],
+  "current_version_id": 234781938890397,
+  "variant_type": null,
+  "taxonomy_terms": [],
+  "experiment_ids": [],
+  "release_ids": [],
+  "stage": null,
+  "stages": [],
+  "assigned_users_per_language": {},
+  "favourite_for_user_ids": []
+}

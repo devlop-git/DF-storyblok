@@ -1,12 +1,12 @@
 import { cookies } from "next/headers";
-import { addConfiguredItemToBag, VENDURE_TOKEN_COOKIE } from "@df/core/services/cart";
+import { addConfiguredItemToBag, CART_ID_COOKIE } from "@df/core/services/cart";
 import { getPDP } from "@df/core/services/commerce";
 import { buildAddToCartInput } from "@df/core/utils/cartInput";
 
 // Server-side proxy for "Add to Bag": the browser posts the full AddToCartInput
-// (see utils/cartInput.js) and the Vendure token stays in an httpOnly cookie
-// (never in client JS). Vendure charges the price exactly as sent, so the
-// pricing is re-checked against the PDP API before it is forwarded.
+// (see utils/cartInput.js) and the Medusa cart id stays in an httpOnly cookie.
+// Medusa charges the price exactly as sent, so the pricing is re-checked
+// against the PDP API before it is forwarded.
 export async function POST(request) {
   const input = await request.json().catch(() => null);
   const { sku, slug, language = "de" } = input ?? {};
@@ -37,24 +37,16 @@ export async function POST(request) {
       );
     }
 
-    const { result, token } = await addConfiguredItemToBag({ ...input, quantity, pricing });
+    const cart = await addConfiguredItemToBag({ ...input, quantity, pricing });
 
-    if (token) {
-      const cookieStore = await cookies();
-      cookieStore.set(VENDURE_TOKEN_COOKIE, token, {
-        httpOnly: true,
-        sameSite: "lax",
-        path: "/",
-      });
-    }
+    const cookieStore = await cookies();
+    cookieStore.set(CART_ID_COOKIE, cart.id, {
+      httpOnly: true,
+      sameSite: "lax",
+      path: "/",
+    });
 
-    if (result?.__typename !== "Order") {
-      return Response.json(
-        { error: result?.message ?? "Could not add to bag", errorCode: result?.errorCode },
-        { status: 400 },
-      );
-    }
-    return Response.json({ order: result });
+    return Response.json({ cart });
   } catch (error) {
     console.error("Add to bag:", error.message);
     if (error.userMessage) {

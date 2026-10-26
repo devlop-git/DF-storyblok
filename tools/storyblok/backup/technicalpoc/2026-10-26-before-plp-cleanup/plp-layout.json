@@ -1,0 +1,165 @@
+{
+  "name": "PLP Layout",
+  "parent_id": 0,
+  "group_id": "d447f5fa-11b1-496c-aa85-73155041ccb9",
+  "alternates": [],
+  "created_at": "2026-10-26T11:25:10.594Z",
+  "deleted_at": null,
+  "sort_by_date": null,
+  "tag_list": [],
+  "updated_at": "2026-10-26T12:31:01.880Z",
+  "published_at": "2026-10-26T12:31:01.870Z",
+  "id": 234800376224766,
+  "uuid": "2479a038-b576-4c03-a6ed-50a456b1e078",
+  "is_folder": false,
+  "content": {
+    "_uid": "22f18e3e-9ed3-461f-bcd2-9bd0a675f7a5",
+    "title": "PLP Layout",
+    "component": "plp_page",
+    "plp_section": [
+      {
+        "_uid": "c46a48c8-097d-461b-97b5-34953acc3ef7",
+        "component": "algolia_product_listing",
+        "gridConfig": [
+          {
+            "_uid": "f9980d00-f66b-4beb-8aab-2947ffaa6859",
+            "component": "product_grid_cofiguration",
+            "tabColumns": "2",
+            "mobileColumns": "2",
+            "desktopColumns": "3"
+          }
+        ],
+        "promo_tiles": [
+          {
+            "_uid": "e8ae937d-9faa-4799-a901-30ce5e3c21b6",
+            "text": "Receive €100 off when you spend €1,800 in-store.",
+            "title": "Book an appointment",
+            "position": "4",
+            "component": "plp_promo_tile",
+            "button_label": "Book now"
+          }
+        ],
+        "show_search": true,
+        "filterConfig": [
+          {
+            "_uid": "618865f4-d210-48d7-9b34-2c641acd2faf",
+            "width": "280",
+            "sticky": true,
+            "position": "right",
+            "component": "filter_configuration"
+          }
+        ],
+        "hits_per_page": "24",
+        "toolbarConfig": [
+          {
+            "_uid": "f29c101c-4c6d-4437-b92a-2884d4166ef4",
+            "showSort": true,
+            "component": "toolbar_configuration",
+            "showFilterButton": true,
+            "showProductCount": true
+          }
+        ]
+      },
+      {
+        "_uid": "6701eb82-10a0-4dcb-b481-48c5cac3eba9",
+        "title": "PLP Layout",
+        "component": "read_more_content",
+        "readLessLabel": "Read less",
+        "readMoreLabel": "Read more",
+        "previewContent": "",
+        "expandedContent": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "text": "Every piece is made to order in your choice of metal and stone.",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "algoliaCategory": ""
+  },
+  "published": true,
+  "slug": "plp-layout",
+  "path": null,
+  "full_slug": "plp-layout",
+  "default_root": null,
+  "disble_fe_editor": false,
+  "disable_fe_editor": false,
+  "parent": null,
+  "is_startpage": false,
+  "unpublished_changes": false,
+  "meta_data": null,
+  "imported_at": null,
+  "preview_token": {
+    "token": "029982a59cf39d1fddf85db6dc882857f49293cb",
+    "timestamp": "1793018518"
+  },
+  "pinned": false,
+  "breadcrumbs": [],
+  "publish_at": null,
+  "expire_at": null,
+  "first_published_at": "2026-10-26T11:25:10.638Z",
+  "last_author": {
+    "id": 224818409670620,
+    "userid": "devanshee.rupabheda@navgrahaa.com",
+    "friendly_name": "Devanshi Rupabheda"
+  },
+  "last_author_id": 224818409670620,
+  "user_ids": [],
+  "space_role_ids": [],
+  "translated_slugs": [],
+  "localized_paths": [
+    {
+      "path": "plp-layout",
+      "name": null,
+      "lang": "us-fr",
+      "published": false
+    },
+    {
+      "path": "plp-layout",
+      "name": null,
+      "lang": "us-es",
+      "published": false
+    },
+    {
+      "path": "plp-layout",
+      "name": null,
+      "lang": "us-en",
+      "published": false
+    },
+    {
+      "path": "plp-layout",
+      "name": null,
+      "lang": "de-en",
+      "published": false
+    },
+    {
+      "path": "plp-layout",
+      "name": null,
+      "lang": "de-de",
+      "published": false
+    }
+  ],
+  "position": -70,
+  "translated_stories": [],
+  "can_not_view": false,
+  "is_scheduled": null,
+  "scheduled_dates": null,
+  "ideas": [],
+  "current_version_id": 234816560498465,
+  "variant_type": null,
+  "taxonomy_terms": [],
+  "experiment_ids": [],
+  "release_ids": [],
+  "stage": null,
+  "stages": [],
+  "assigned_users_per_language": {},
+  "favourite_for_user_ids": []
+}

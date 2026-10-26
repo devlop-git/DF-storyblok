@@ -16,9 +16,11 @@ export const getStoryblokApi = storyblokInit({
 });
 
 // Draft content locally / in preview, published content in production.
-// Override with STORYBLOK_VERSION=draft|published if needed.
+// Override with STORYBLOK_VERSION=draft|published if needed. `||`, not `??`:
+// the .env files ship with an empty `STORYBLOK_VERSION=`, which would otherwise
+// request published content (cached per cv) and show stale edits in dev.
 const version =
-  process.env.STORYBLOK_VERSION ??
+  process.env.STORYBLOK_VERSION ||
   (process.env.NODE_ENV === "production" ? "published" : "draft");
 
 // Reference fields resolved to full stories when a page is rendered (the

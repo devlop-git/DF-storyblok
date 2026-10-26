@@ -10,18 +10,23 @@
   "scripts": {
     "dev:df": "turbo run dev --filter=diamondsfactory",
     "dev:ab": "turbo run dev --filter=austenblake",
+    "dev:tp": "turbo run dev --filter=technicalpoc",
     "dev:df:http": "turbo run dev:http --filter=diamondsfactory",
     "dev:ab:http": "turbo run dev:http --filter=austenblake",
+    "dev:tp:http": "turbo run dev:http --filter=technicalpoc",
     "build": "turbo run build",
     "build:df": "turbo run build --filter=diamondsfactory",
     "build:ab": "turbo run build --filter=austenblake",
+    "build:tp": "turbo run build --filter=technicalpoc",
     "start:df": "npm run start -w diamondsfactory",
     "start:ab": "npm run start -w austenblake",
+    "start:tp": "npm run start -w technicalpoc",
     "lint": "turbo run lint",
     "migrate:schema:df": "node --env-file=apps/diamondsfactory/.env.local tools/storyblok/migrate-strapi-schema.mjs",
     "migrate:schema:ab": "node --env-file=apps/austenblake/.env.local tools/storyblok/migrate-strapi-schema.mjs",
     "backup:df": "node --env-file=apps/diamondsfactory/.env.local tools/storyblok/backup-storyblok.mjs diamondsfactory",
-    "backup:ab": "node --env-file=apps/austenblake/.env.local tools/storyblok/backup-storyblok.mjs austenblake"
+    "backup:ab": "node --env-file=apps/austenblake/.env.local tools/storyblok/backup-storyblok.mjs austenblake",
+    "setup:algolia-plp": "node --env-file=apps/technicalpoc/.env.local tools/storyblok/setup-algolia-plp.mjs"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

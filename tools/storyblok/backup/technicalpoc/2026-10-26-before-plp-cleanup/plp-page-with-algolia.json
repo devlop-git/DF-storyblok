@@ -1,0 +1,164 @@
+{
+  "name": "plp page with algolia",
+  "parent_id": 0,
+  "group_id": "ac30b165-d542-4838-aec0-516adbe02c7c",
+  "alternates": [],
+  "created_at": "2026-10-26T10:52:15.845Z",
+  "deleted_at": null,
+  "sort_by_date": null,
+  "tag_list": [],
+  "updated_at": "2026-10-26T12:28:18.837Z",
+  "published_at": "2026-10-26T12:28:18.822Z",
+  "id": 234792287642280,
+  "uuid": "bb34dfee-49a8-4e2d-90e0-2b54b600cf3d",
+  "is_folder": false,
+  "content": {
+    "_uid": "c0c945b4-9e3b-4f12-abba-21502468bb4e",
+    "title": "Plp Page algolia",
+    "component": "plp_page",
+    "plp_section": [
+      {
+        "_uid": "ca5e6573-dd63-4f57-a0c5-5f2872d1ae23",
+        "component": "algolia_product_listing",
+        "gridConfig": [
+          {
+            "_uid": "078ad769-ce75-41f3-a0c3-7c9cc3a0b3de",
+            "component": "product_grid_cofiguration",
+            "tabColumns": "3",
+            "mobileColumns": "2",
+            "desktopColumns": "3"
+          }
+        ],
+        "promo_tiles": [
+          {
+            "_uid": "e6010b84-f92c-485d-ad25-21bc1ac21ecc",
+            "link": {
+              "id": "",
+              "url": "",
+              "linktype": "story",
+              "fieldtype": "multilink",
+              "cached_url": ""
+            },
+            "text": "",
+            "image": {
+              "id": null,
+              "alt": null,
+              "name": "",
+              "focus": null,
+              "title": null,
+              "source": null,
+              "filename": "",
+              "copyright": null,
+              "fieldtype": "asset",
+              "meta_data": {}
+            },
+            "title": "",
+            "position": "4",
+            "component": "plp_promo_tile",
+            "button_label": ""
+          }
+        ],
+        "show_search": true,
+        "filterConfig": [
+          {
+            "_uid": "4256453f-942d-4860-8dc7-96904d26d861",
+            "order": "",
+            "width": "280",
+            "sticky": false,
+            "position": "right",
+            "component": "filter_configuration"
+          }
+        ],
+        "hits_per_page": "24",
+        "toolbarConfig": [
+          {
+            "_uid": "78bf14ad-8d0b-47e9-975d-210caa84b911",
+            "showSort": true,
+            "component": "toolbar_configuration",
+            "showFilterButton": false,
+            "showProductCount": true
+          }
+        ],
+        "search_placeholder": ""
+      }
+    ],
+    "algoliaCategory": "Engagement Ring"
+  },
+  "published": true,
+  "slug": "plp-page-with-algolia",
+  "path": null,
+  "full_slug": "plp-page-with-algolia",
+  "default_root": null,
+  "disble_fe_editor": false,
+  "disable_fe_editor": false,
+  "parent": null,
+  "is_startpage": false,
+  "unpublished_changes": false,
+  "meta_data": null,
+  "imported_at": null,
+  "preview_token": {
+    "token": "e6f074182ac3d98f36ee0e071f3d6ca7f6fe8e85",
+    "timestamp": "1793018519"
+  },
+  "pinned": false,
+  "breadcrumbs": [],
+  "publish_at": null,
+  "expire_at": null,
+  "first_published_at": "2026-10-26T10:54:18.156Z",
+  "last_author": {
+    "id": 224818409670620,
+    "userid": "devanshee.rupabheda@navgrahaa.com",
+    "friendly_name": "Devanshi Rupabheda"
+  },
+  "last_author_id": 224818409670620,
+  "user_ids": [],
+  "space_role_ids": [],
+  "translated_slugs": [],
+  "localized_paths": [
+    {
+      "path": "plp-page-with-algolia",
+      "name": null,
+      "lang": "us-fr",
+      "published": false
+    },
+    {
+      "path": "plp-page-with-algolia",
+      "name": null,
+      "lang": "us-es",
+      "published": false
+    },
+    {
+      "path": "plp-page-with-algolia",
+      "name": null,
+      "lang": "us-en",
+      "published": false
+    },
+    {
+      "path": "plp-page-with-algolia",
+      "name": null,
+      "lang": "de-en",
+      "published": false
+    },
+    {
+      "path": "plp-page-with-algolia",
+      "name": null,
+      "lang": "de-de",
+      "published": false
+    }
+  ],
+  "position": -60,
+  "translated_stories": [],
+  "can_not_view": false,
+  "is_scheduled": null,
+  "scheduled_dates": null,
+  "ideas": [],
+  "current_version_id": 234815892627941,
+  "variant_type": null,
+  "taxonomy_terms": [],
+  "experiment_ids": [],
+  "release_ids": [],
+  "stage": null,
+  "stages": [],
+  "assigned_users_per_language": {},
+  "favourite_for_user_ids": []
+}
