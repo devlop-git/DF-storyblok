@@ -11,11 +11,11 @@ import AlgoliaProductListing from "@df/ui/plp/algolia/AlgoliaProductListing";
 // The scope is passed to every section, so the algolia_product_listing block
 // searches in it. Without that block in the story, the products are shown
 // after the sections anyway.
-export default function AlgoliaPlpPage({ blok, algoliaCategory, algoliaSubCategory }) {
+export default function AlgoliaPlpPage({ blok, algoliaCategory, algoliaSubCategory, facetValues }) {
   const category = algoliaCategory ?? blok.algoliaCategory;
   const subCategory = algoliaSubCategory ?? null;
   console.log('cat---',category, subCategory);
-  const scope = { algoliaCategory: category, algoliaSubCategory: subCategory };
+  const scope = { algoliaCategory: category, algoliaSubCategory: subCategory, facetValues };
   const hasListing = blok.plp_section?.some((s) => s.component === "algolia_product_listing");
 
   const breadcrumb = [

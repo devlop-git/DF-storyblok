@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { HiOutlineAdjustmentsHorizontal } from "react-icons/hi2";
 import {
@@ -26,6 +26,7 @@ import {
   searchClient,
 } from "./config";
 import { parseQuery } from "./queryParser";
+import { createRouting } from "./urlState";
 
 const FUTURE = { preserveSharedStateOnUnmount: true };
 
@@ -263,10 +264,20 @@ function PaginationNav() {
 // filter/grid config, promo tiles). `algoliaCategory` / `algoliaSubCategory`
 // come from the URL (/engagement-rings/solitaire) or the plp_page story: exact
 // categories_hierarchical values; no category = all products.
-export default function AlgoliaProductListing({ data, algoliaCategory, algoliaSubCategory }) {
+export default function AlgoliaProductListing({
+  data,
+  algoliaCategory,
+  algoliaSubCategory,
+  facetValues,
+}) {
   const [filtersOpen, setFiltersOpen] = useState(false);
   const category = algoliaCategory || undefined;
   const subCategory = (category && algoliaSubCategory) || undefined;
+  // Readable URLs (?shape=oval&metal=yellow-gold&sort=price-asc), see urlState.js.
+  // Built once: InstantSearchNext creates its router on the first render only
+  // (the component is re-keyed when the category changes).
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const routing = useMemo(() => createRouting({ facetValues, category }), []);
   const toolbarConfig = data?.toolbarConfig?.[0] ?? { showSort: true, showProductCount: true };
   const filterConfig = data?.filterConfig?.[0] ?? {};
   const gridConfig = data?.gridConfig?.[0];
@@ -289,7 +300,7 @@ export default function AlgoliaProductListing({ data, algoliaCategory, algoliaSu
       key={`${category ?? ""}|${subCategory ?? ""}`}
       searchClient={searchClient}
       indexName={INDEX_NAME}
-      routing
+      routing={routing}
       future={FUTURE}
     >
       <SearchConfig
