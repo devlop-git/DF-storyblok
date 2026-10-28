@@ -26,7 +26,8 @@
     "migrate:schema:ab": "node --env-file=apps/austenblake/.env.local tools/storyblok/migrate-strapi-schema.mjs",
     "backup:df": "node --env-file=apps/diamondsfactory/.env.local tools/storyblok/backup-storyblok.mjs diamondsfactory",
     "backup:ab": "node --env-file=apps/austenblake/.env.local tools/storyblok/backup-storyblok.mjs austenblake",
-    "setup:algolia-plp": "node --env-file=apps/technicalpoc/.env.local tools/storyblok/setup-algolia-plp.mjs"
+    "setup:algolia-plp": "node --env-file=apps/technicalpoc/.env.local tools/storyblok/setup-algolia-plp.mjs",
+    "setup:navigation:tp": "node --env-file=apps/technicalpoc/.env.local tools/storyblok/setup-navigation.mjs"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

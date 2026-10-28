@@ -1,12 +1,13 @@
 import DesktopNavigation from "./DesktopNavigation";
 import MobileNavigation from "./MobileNavigation";
-import { getNavigation } from "@df/core/services/commerce";
+import { getMenu } from "@df/core/services/navigation";
 
-// Category menu from the Commerce category API (see services/commerce.js).
+// Header menu: the Storyblok "Main Navigation" story, or the PIM category API
+// when the brand's space doesn't have one (see services/navigation.js).
 const Navigation = async ({ languages, locale }) => {
   let navigation = [];
   try {
-    navigation = await getNavigation(locale);
+    navigation = await getMenu(locale);
   } catch (error) {
     // Keep the rest of the page working when the Commerce API is down.
     console.error("Header navigation:", error.message);

@@ -81,6 +81,19 @@ name and port, `brand/config.js`, colours in `globals.css` and `.env.local`, the
 - `/{category}/{subCategory}` = PLP (products from the Commerce API, layout from the PLP Page story).
 - `/design/{slug}/{sku}` = PDP (product from the Commerce API, sections from the PDP Page story).
 - Blocks map to components by technical name in `packages/ui/storyblok/index.js`.
+
+## Editing the header menu
+
+The menu comes from the Storyblok story **Main Navigation** (slug `main-navigation`, content
+type `navigation`: Menu Item → Menu Column → Menu Link), read in `packages/core/services/navigation.js`.
+Business users add, remove, rename and drag items there, then Save/Publish.
+
+- Sub-menu URLs are built from the names, like the PIM menu was: "Engagement Rings" + "Solitaire" →
+  `/engagement-rings/solitaire`. Fill **URL name** to keep a URL when renaming/translating a label,
+  or **Link** for anything else (e.g. `/sale`).
+- A space without that story keeps the PIM category menu (fallback).
+- Create it in a space (blocks + story pre-filled from the current PIM menu):
+  `npm run setup:navigation:tp -- --dry-run`, then without `--dry-run`.
 - Draft content in development, published in production (override with `STORYBLOK_VERSION`).
 
 ## Strapi → Storyblok terms

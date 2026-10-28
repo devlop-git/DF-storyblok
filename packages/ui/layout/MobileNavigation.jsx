@@ -8,7 +8,10 @@ import HeaderTabs from "./HeaderTabs";
 import TopAnnouncementBar from "./TopAnnouncementBar";
 import LanguageDropdown from "./LanguageDropdown";
 import { brand } from "@brand/config";
-import { categoryName, slugify } from "@df/core/utils/slugify";
+
+// `navigation`: the header menu from getMenu() (services/navigation.js) --
+// Storyblok "Main Navigation" story, or the PIM categories as fallback.
+const hasLinks = (item) => item.columns.some((column) => column.links.length);
 
 export default function MobileNavigation({ navigation = [], languages, locale }) {
   const [open, setOpen] = useState(false);
@@ -79,23 +82,33 @@ export default function MobileNavigation({ navigation = [], languages, locale })
             {/* Parent Categories */}
 
             {!selectedCategory &&
-              navigation.map((category) => (
-                <button
-                  key={category.category_id}
-                  onClick={() => {
-                    if (category.children?.length) {
-                      setSelectedCategory(category);
-                    }
-                  }}
-                  className="flex w-full items-center justify-between  px-4 py-4 text-left text-[11px] uppercase tracking-wide transition hover:bg-[#F8F5F1]"
-                >
-                  <span>{categoryName(category)}</span>
+              navigation.map((item) =>
+                // A menu with its own link and no sub-menus (e.g. SALE) navigates directly.
+                item.href && !hasLinks(item) ? (
+                  <Link
+                    key={item.id}
+                    {...item.editable}
+                    href={item.href}
+                    onClick={closeDrawer}
+                    className="flex w-full items-center justify-between  px-4 py-4 text-left text-[11px] uppercase tracking-wide transition hover:bg-[#F8F5F1]"
+                  >
+                    <span>{item.label}</span>
+                  </Link>
+                ) : (
+                  <button
+                    key={item.id}
+                    {...item.editable}
+                    onClick={() => {
+                      if (hasLinks(item)) setSelectedCategory(item);
+                    }}
+                    className="flex w-full items-center justify-between  px-4 py-4 text-left text-[11px] uppercase tracking-wide transition hover:bg-[#F8F5F1]"
+                  >
+                    <span>{item.label}</span>
 
-                  {category.children?.length > 0 && (
-                    <IoIosArrowForward className="text-2xl" />
-                  )}
-                </button>
-              ))}
+                    {hasLinks(item) && <IoIosArrowForward className="text-2xl" />}
+                  </button>
+                ),
+              )}
 
             {/* Sub Categories */}
 
@@ -110,29 +123,36 @@ export default function MobileNavigation({ navigation = [], languages, locale })
                   <HiChevronLeft className="text-2xl" />
 
                   <span className="text-[12px] font-medium uppercase text-brand-primary">
-                    {categoryName(selectedCategory)}
+                    {selectedCategory.label}
                   </span>
                 </button>
 
                 {/* Children */}
 
-                {selectedCategory.children.map((child) => {
-                  const parentSlug = slugify(categoryName(selectedCategory));
-                  const childName = categoryName(child, "Sub Category");
+                {/* Children, grouped by column when there are several (e.g. STYLE, SHAPE) */}
 
-                  return (
-                    <Link
-                      key={child.category_id}
-                      href={`/${parentSlug}/${slugify(childName)}`}
-                      onClick={closeDrawer}
-                      className="flex items-center justify-between  px-8 text-[12px] uppercase transition hover:bg-[#F8F5F1]"
-                    >
-                      <span>{childName}</span>
+                {selectedCategory.columns.map((column) => (
+                  <div key={column.id} {...column.editable}>
+                    {selectedCategory.columns.length > 1 && column.heading && (
+                      <p className="px-8 pb-1 pt-4 text-[11px] font-semibold uppercase tracking-wide text-brand-primary">
+                        {column.heading}
+                      </p>
+                    )}
+                    {column.links.map((link) => (
+                      <Link
+                        key={link.id}
+                        {...link.editable}
+                        href={link.href}
+                        onClick={closeDrawer}
+                        className="flex items-center justify-between  px-8 text-[12px] uppercase transition hover:bg-[#F8F5F1]"
+                      >
+                        <span>{link.label}</span>
 
-                      <span className="text-4xl font-light">+</span>
-                    </Link>
-                  );
-                })}
+                        <span className="text-4xl font-light">+</span>
+                      </Link>
+                    ))}
+                  </div>
+                ))}
               </>
             )}
             <div className="flex items-center justify-center py-4">
