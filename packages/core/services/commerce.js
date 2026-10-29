@@ -104,6 +104,28 @@ export async function getPLP(categoryId, subCategoryId, language = "de") {
   return data?.plp;
 }
 
+// PDP_PROMOTIONS=off: ignore the PDP API's own promotion, so products are
+// shown and added to the cart at their full list price and discounts only
+// come from coupon codes in the cart (Vendure promotions). For testing coupons.
+const PDP_PROMOTIONS = process.env.PDP_PROMOTIONS !== "off";
+
+function withoutPromotion(payload) {
+  const price = payload.data?.priceInformation;
+  if (!price?.listPrice) return payload;
+  return {
+    ...payload,
+    data: {
+      ...payload.data,
+      priceInformation: {
+        ...price,
+        totalPrice: price.listPrice,
+        subTotalAfterPromotion: price.listPrice,
+        promotion: null,
+      },
+    },
+  };
+}
+
 // Full PDP payload `{ status, data, meta }` for one design configuration.
 // Returns null when the design/sku doesn't exist (404) so the page can notFound().
 // The options' `isSelected` flags are rewritten to match the SKU in the URL.
@@ -118,7 +140,8 @@ export async function getPDP(slug, sku, language = "de") {
     throw new Error(`PDP API error ${response.status}: ${error}`);
   }
 
-  const payload = await response.json();
+  const raw = await response.json();
+  const payload = PDP_PROMOTIONS ? raw : withoutPromotion(raw);
   const selections = sku ? parseSku(payload.data.options, sku) : null;
   if (!selections) return payload;
 

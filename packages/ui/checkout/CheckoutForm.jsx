@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import { formatPrice } from "@df/core/utils/formatPrice";
 
-// Delivery fields; the country is fixed to the UK (the Medusa cart's region is GBP).
+// Delivery fields; the country is fixed to the UK (the Vendure channel's currency is GBP).
 const FIELDS = [
   { name: "first_name", label: "First name", required: true, autoComplete: "given-name" },
   { name: "last_name", label: "Last name", required: true, autoComplete: "family-name" },
@@ -19,12 +20,14 @@ const FIELDS = [
 const inputClass =
   "w-full border border-[#E8DDCF] bg-white px-3 py-2 text-sm focus:border-brand-pdp focus:outline-none";
 
-// Posts { email, shipping_address } to /api/cart/checkout, which completes the
-// Medusa cart (billing address = delivery address) and returns the order.
+// Posts { email, shipping_address } to /api/cart/checkout, which places the
+// Vendure order (billing address = delivery address, the delivery method picked
+// in the bag) and returns it; then opens /order/<code>.
 export default function CheckoutForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
   const [order, setOrder] = useState(null);
+  const router = useRouter();
 
   const placeOrder = async (event) => {
     event.preventDefault();
@@ -44,6 +47,9 @@ export default function CheckoutForm() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || `Checkout ${res.status}`);
       setOrder(data.order);
+      // Empty bag in the header, then the confirmation page (read back from Vendure).
+      window.dispatchEvent(new Event("cart:updated"));
+      router.push(`/order/${data.order.code}`);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -56,11 +62,11 @@ export default function CheckoutForm() {
       <div className="space-y-3">
         <h2 className="text-xl font-semibold text-brand-pdp">Thank you for your order!</h2>
         <p className="text-sm">
-          Order <strong>#{order.display_id}</strong> has been placed. Confirmation goes to{" "}
+          Order <strong>{order.code}</strong> has been placed. Confirmation goes to{" "}
           <strong>{order.email}</strong>.
         </p>
         <p className="text-sm">
-          Total: {formatPrice(order.total, order.currency_code?.toUpperCase())}
+          Total: {formatPrice(order.total, order.currency)}
         </p>
         <Link href="/" className="inline-block text-sm text-brand-pdp underline">
           Continue shopping
@@ -103,8 +109,7 @@ export default function CheckoutForm() {
       </div>
 
       <p className="text-xs text-gray-500">
-        Billing address is the same as the delivery address. Payment uses Medusa&apos;s test
-        provider, so no card is charged.
+        Billing address is the same as the delivery address. Payment uses Vendure&apos;s test payment method, so no card is charged.
       </p>
 
       {error && <p className="text-sm text-[#e72618]">{error}</p>}

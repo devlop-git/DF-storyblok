@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { brand } from "@brand/config";
+import BagLink from "./BagLink";
 import LanguageDropdown from "./LanguageDropdown";
-import { HiOutlineShoppingBag, HiOutlineUserCircle } from "react-icons/hi2";
+import { HiOutlineUserCircle } from "react-icons/hi2";
 import { IoIosSearch, IoMdHeartEmpty } from "react-icons/io";
 import { FiPhoneCall } from "react-icons/fi";
 import { IoLocationOutline, IoCalendarClearOutline } from "react-icons/io5";
@@ -64,9 +65,7 @@ const HeaderTabs = ({ logo, languages, locale }) => {
             <IoMdHeartEmpty className="text-lg md:text-2xl" />
           </button>
 
-          <button className="hover:text-brand-primary">
-            <HiOutlineShoppingBag className="text-lg lg:text-2xl" />
-          </button>
+          <BagLink />
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
-import { cookies } from "next/headers";
-import { CART_ID_COOKIE, checkoutCart } from "@df/core/services/cart";
+import { errorResponse } from "@df/core/routes/cartHelpers";
+import { checkoutCart } from "@df/core/services/cart";
 
 const REQUIRED_ADDRESS_FIELDS = [
   "first_name",
@@ -11,12 +11,11 @@ const REQUIRED_ADDRESS_FIELDS = [
 ];
 
 // Server-side proxy for the checkout page: the browser posts { email,
-// shipping_address, billing_address? } and the cart id comes from the httpOnly
-// cookie. On success the cookie is cleared, so the next Add to Bag starts a
-// new cart.
+// shipping_address } and the cart is the Vendure session in the httpOnly
+// cookie. Places the order (customer, addresses, shipping, payment) and
+// returns it; Vendure then starts a new, empty cart for the same session.
 export async function POST(request) {
-  const { email, shipping_address, billing_address } =
-    (await request.json().catch(() => null)) ?? {};
+  const { email, shipping_address } = (await request.json().catch(() => null)) ?? {};
 
   const missing = [
     !email?.trim() && "email",
@@ -27,17 +26,9 @@ export async function POST(request) {
   }
 
   try {
-    const order = await checkoutCart({ email, shipping_address, billing_address });
-
-    const cookieStore = await cookies();
-    cookieStore.delete(CART_ID_COOKIE);
-
+    const order = await checkoutCart({ email, address: shipping_address });
     return Response.json({ order });
   } catch (error) {
-    console.error("Checkout:", error.message);
-    if (error.userMessage) {
-      return Response.json({ error: error.userMessage }, { status: 400 });
-    }
-    return Response.json({ error: "Could not place the order" }, { status: 502 });
+    return errorResponse("Checkout", error, "Could not place the order");
   }
 }

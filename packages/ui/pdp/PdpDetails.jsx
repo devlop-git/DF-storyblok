@@ -114,7 +114,7 @@ export default function PdpDetails({
 
   // Add to Bag: posts the full AddToCartInput (sku, product, pricing, selected
   // options, metadata) to /api/cart/add, which re-checks the price against the
-  // PDP API and adds the line to the Medusa cart.
+  // PDP API and adds the line to the Vendure cart.
   const [isAdding, setIsAdding] = useState(false);
   const [bagMessage, setBagMessage] = useState(null);
 
@@ -135,6 +135,7 @@ export default function PdpDetails({
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || `Cart ${res.status}`);
       setBagMessage({ type: "success", text: "Added to bag" });
+      window.dispatchEvent(new Event("cart:updated")); // header bag count
     } catch (error) {
       setBagMessage({ type: "error", text: error.message });
     } finally {
