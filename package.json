@@ -27,7 +27,8 @@
     "backup:df": "node --env-file=apps/diamondsfactory/.env.local tools/storyblok/backup-storyblok.mjs diamondsfactory",
     "backup:ab": "node --env-file=apps/austenblake/.env.local tools/storyblok/backup-storyblok.mjs austenblake",
     "setup:algolia-plp": "node --env-file=apps/technicalpoc/.env.local tools/storyblok/setup-algolia-plp.mjs",
-    "setup:navigation:tp": "node --env-file=apps/technicalpoc/.env.local tools/storyblok/setup-navigation.mjs"
+    "setup:navigation:tp": "node --env-file=apps/technicalpoc/.env.local tools/storyblok/setup-navigation.mjs",
+    "migrate:df-to-tp": "node --env-file=apps/technicalpoc/.env.local tools/storyblok/migrate-df-to-technicalpoc.mjs"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

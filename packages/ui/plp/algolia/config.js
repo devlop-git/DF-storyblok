@@ -89,6 +89,24 @@ export const ruleLabel = (id) =>
   RULE_LABELS[id] ??
   (id.startsWith("nlp-phrase-") ? `"${id.replace("nlp-phrase-", "").replace(/-/g, " ")}"` : null);
 
+// Designs our own PDP (/design/…, Commerce PDP API) can show. Their cards open
+// that page; every other card links to the product's live URL from Algolia.
+// Comma-separated design codes, e.g. NEXT_PUBLIC_PDP_DESIGNS=CLRN349,CLRN4466
+const PDP_DESIGNS = new Set(
+  (process.env.NEXT_PUBLIC_PDP_DESIGNS || "CLRN349")
+    .split(",")
+    .map((code) => code.trim().toUpperCase())
+    .filter(Boolean),
+);
+
+// Our PDP URL for a hit, or null. Opens the design's default configuration
+// (the PDP fills in the default options for the empty SKU parts).
+export function pdpHref(hit) {
+  const design = hit.design?.toUpperCase();
+  if (!design || !PDP_DESIGNS.has(design)) return null;
+  return `/design/${design.toLowerCase()}_01/${design}_MS00MTMFCTST0000SF`;
+}
+
 export function formatPrice(amount, currency = "GBP") {
   return new Intl.NumberFormat("en-GB", {
     style: "currency",
